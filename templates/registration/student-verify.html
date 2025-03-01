@@ -1,0 +1,448 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Kiarutara - School Portal</title>
+    <meta
+      name="description"
+      content="School portal, fee management, online fee payment, Mpesa to school fees"
+    />
+    <meta
+      name="keywords"
+      content="School portal, fee management, online fee payment, Mpesa to school fees"
+    />
+
+    <!-- Favicons -->
+    <link
+      href="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/education-icon%2C-book-icon-logo-school-logo-design-template-2f5700bab7fe195a2659cf45edffcb5c_screen.jpg?ts=1659803081"
+      rel="icon"
+    />
+    <link
+      href="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/education-icon%2C-book-icon-logo-school-logo-design-template-2f5700bab7fe195a2659cf45edffcb5c_screen.jpg?ts=1659803081"
+      rel="apple-touch-icon"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- assets/ CSS Files -->
+    <!-- Bootstrap CSS -->
+    <link
+      href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap Icons -->
+    <link
+      href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}"
+      rel="stylesheet"
+    />
+
+    <!-- AOS Animation CSS -->
+    <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet" />
+
+    <!-- Glightbox CSS -->
+    <link
+      href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}"
+      rel="stylesheet"
+    />
+
+    <!-- Swiper CSS -->
+    <link
+      href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}"
+      rel="stylesheet"
+    />
+
+    <!-- Main CSS File -->
+    <link href="{% static 'assets/css/main.css' %}" rel="stylesheet" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body class="pricing-page">
+    <header id="header" class="header d-flex align-items-center sticky-top">
+      <div
+        class="container-fluid container-xl position-relative d-flex align-items-center"
+      >
+        <a href="/" class="logo d-flex align-items-center me-auto">
+          <!-- Uncomment the line below if you also wish to use an image logo -->
+          <!-- <img src="assets/img/logo.png" alt=""> -->
+          <h1 class="sitename text-sm">Kiarutara</h1>
+        </a>
+
+        <nav id="navmenu" class="navmenu">
+          <ul>
+            <li>
+              <a href="/">Home<br /></a>
+            </li>
+            <li><a href="/teachers">Teachers</a></li>
+            <li><a href="/events">Events </a></li>
+            <li><a href="/school-fees">School Fees</a></li>
+            <li><a href="/contacts">Contact</a></li>
+          </ul>
+          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+
+        <a
+          class="btn-getstarted"
+          style="background-color: rgb(35 56 118)"
+          href="/home"
+          >School Portal</a
+        >
+      </div>
+    </header>
+
+    <main class="main">
+      <!-- Page Title -->
+      <div class="page-title" data-aos="fade">
+        <nav class="breadcrumbs" style="background-color: orange">
+          <div class="container" style="background-color: orange">
+            <ol>
+              <li><a href="/">Home</a></li>
+              <li class="/home">Portal</li>
+              <li class="current"> Parent</li>
+              <li class="current">Verify Student</li>
+            </ol>
+          </div>
+        </nav>
+      </div>
+
+      <!-- End Page Title -->
+
+      <br />
+
+      <!-- Pricing Section -->
+      <section id="pricing" class="pricing section">
+        <div class="container">
+          <div class="row gy-3">
+            <div class="col-xl-3 col-lg-3"></div>
+
+            <div
+              class="col-xl-6 col-lg-6"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              <div
+                class="pricing-item featured"
+                style="border: 1px solid orange"
+              >
+                <h3>Verify Student </h3>
+                <h4 class="flex items-center justify-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="72"
+                    height="72"
+                    viewBox="0 0 256 256"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="m225.27 60.21l-96-32a4 4 0 0 0-2.54 0l-96 32A4 4 0 0 0 28 64v80a4 4 0 0 0 8 0V69.55l43.88 14.63a60 60 0 0 0 24.54 91c-20.86 5.74-39 19.13-51.77 38.65a4 4 0 0 0 6.7 4.36C75.17 193.92 100.2 180 128 180s52.83 13.92 68.65 38.18a4 4 0 0 0 6.7-4.36c-12.72-19.52-30.91-32.91-51.77-38.65a60 60 0 0 0 24.54-91l49.15-16.39a4 4 0 0 0 0-7.58ZM180 120a52 52 0 1 1-92.07-33.14l38.8 12.93a3.95 3.95 0 0 0 2.54 0l38.8-12.93A51.85 51.85 0 0 1 180 120m-52-28.22L44.65 64L128 36.22L211.35 64Z"
+                    />
+                  </svg>
+                </h4>
+
+                <ol
+                  class="flex items-center justify-center w-full p-3 space-x-2 gap-4 text-sm font-medium text-center text-gray-500 sm:text-base"
+                >
+                  <li
+                    class="flex items-center "
+                  >
+                    <span
+                      class="flex items-center justify-center w-5 h-5 me-2 text-xs border border-orange-600 rounded-full shrink-0 "
+                    >
+                      1
+                    </span>
+                    Parent
+                    <span class="hidden sm:inline-flex sm:ms-2">Info</span>
+                    <svg
+                      class="w-3 h-3 ms-2 sm:ms-4 rtl:rotate-180"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 12 10"
+                    >
+                      <path
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="m7 9 4-4-4-4M1 9l4-4-4-4"
+                      />
+                    </svg>
+                  </li>
+                  <li class="flex items-center text-orange-500 ">
+                    <span
+                      class="flex items-center justify-center w-5 h-5 me-2 text-xs border border-gray-500 rounded-full shrink-0 dark:border-gray-400"
+                    >
+                      2
+                    </span>
+                    Student
+                    <span class="hidden sm:inline-flex sm:ms-2">Info</span>
+                    <svg
+                      class="w-3 h-3 ms-2 sm:ms-4 rtl:rotate-180"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 12 10"
+                    >
+                      <path
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="m7 9 4-4-4-4M1 9l4-4-4-4"
+                      />
+                    </svg>
+                  </li>
+                  <li class="flex items-center">
+                    <span
+                      class="flex items-center justify-center w-5 h-5 me-2 text-xs border border-gray-500 rounded-full shrink-0 dark:border-gray-400"
+                    >
+                      3
+                    </span>
+                    Portal
+                  </li>
+                </ol>
+                <form class="w-full container" method="post">
+                    <!-- Email -->
+                    {% csrf_token %}
+                    
+                   
+                    <div class="my-3">
+                      <label
+                        for="admission_no"
+                        name="admission_no"
+                        class="block text-left mb-2 text-sm font-medium text-gray-900"
+                        >Student Assesment Number</label
+                      >
+                      <div class="relative w-full">
+                        <div
+                          class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="w-5 h-5 text-gray-500 dark:text-gray-400"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              fill="currentColor"
+                              d="M13.003 7.754a.75.75 0 0 1 .75-.75h5.232a.75.75 0 0 1 .53 1.28l-2.776 2.777c.55.097 1.057.253 1.492.483c.905.477 1.504 1.284 1.504 2.418c0 .966-.471 1.75-1.172 2.27c-.687.511-1.587.77-2.521.77c-1.367 0-2.274-.528-2.667-.756a.75.75 0 0 1 .755-1.297c.331.193.953.553 1.912.553c.673 0 1.243-.188 1.627-.473c.37-.275.566-.635.566-1.067c0-.5-.219-.836-.703-1.091c-.538-.284-1.375-.443-2.471-.443a.75.75 0 0 1-.53-1.28l2.643-2.644h-3.421a.75.75 0 0 1-.75-.75M7.88 15.215a1.4 1.4 0 0 0-1.446.83a.75.75 0 0 1-1.37-.61a2.9 2.9 0 0 1 2.986-1.71c.589.06 1.139.323 1.557.743c.434.446.685 1.058.685 1.778c0 1.641-1.254 2.437-2.12 2.986c-.538.341-1.18.694-1.495 1.273H9.75a.75.75 0 0 1 0 1.5h-4a.75.75 0 0 1-.75-.75c0-1.799 1.337-2.63 2.243-3.21c1.032-.659 1.55-1.031 1.55-1.8c0-.355-.116-.584-.26-.732a1.07 1.07 0 0 0-.652-.298Zm.234-13.121a.75.75 0 0 1 .386.656V9h1.252a.75.75 0 0 1 0 1.5H5.75a.75.75 0 0 1 0-1.5H7V4.103l-.853.533a.749.749 0 1 1-.795-1.272l2-1.25a.75.75 0 0 1 .762-.02"
+                            />
+                          </svg>
+                        </div>
+                        <input
+                          type="text"
+                          id="admission_no"
+                          name="admission_no"
+                          class="bg-gray-50 w-full border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                          placeholder="Assesment no"
+                        />
+                      </div>
+                    </div>
+                    
+                   
+                    <div class="btn-wrap bg-white">
+                        <button
+                        type="submit"
+                        class="btn-buy"
+                      >
+                        Register new account
+                      </button>
+                      </div>
+                  </form>
+                  <p class="my-4 text-gray-700 text-sm">
+                    Already have an account?
+                    <a href="{% url 'login' %}" class="text-blue-600">Login</a>
+                  </p>
+
+
+              </div>
+            </div>
+            <div class="col-xl-3 col-lg-3"></div>
+          </div>
+        </div>
+      </section>
+
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+
+      <!-- /Pricing Section -->
+    </main>
+    <div>
+      <footer class="bg-blue-900">
+        <br />
+        <br />
+        <br />
+        <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+          <div class="md:flex md:justify-between">
+            <div class="mb-6 md:mb-0">
+              <a href="https://kiarutara.co.ke/" class="flex items-center">
+                <span
+                  class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
+                >
+                  Kiarutara Mixed Day
+                  <br />
+                  & Boarding
+                  <br />
+                  Comprehensive School
+                </span>
+              </a>
+            </div>
+            <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+              <div>
+                <h2
+                  class="mb-6 text-sm font-semibold text-white uppercase dark:text-white"
+                >
+                  Resources
+                </h2>
+                <ul class="text-gray-500 dark:text-gray-400 font-medium">
+                  <li class="mb-4">
+                    <a href="https://kiarutara.co.ke/" class="hover:underline"
+                      >Home</a
+                    >
+                  </li>
+                  <li class="mb-4">
+                    <a href="https://tailwindcss.com/" class="hover:underline"
+                      >School Portal</a
+                    >
+                  </li>
+                  <li class="mb-4">
+                    <a href="#" class="hover:underline">Get started</a>
+                  </li>
+                  <li>
+                    <a href="#" class="hover:underline">Login</a>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h2
+                  class="mb-6 text-sm font-semibold text-white uppercase dark:text-white"
+                >
+                  Get In Touch
+                </h2>
+                <ul class="text-gray-500 dark:text-gray-400 font-medium">
+                  <li class="mb-4">
+                    <a
+                      href="https://github.com/themesberg/flowbite"
+                      class="hover:underline"
+                      >Facebook</a
+                    >
+                  </li>
+                  <li class="mb-4">
+                    <a
+                      href="https://github.com/themesberg/flowbite"
+                      class="hover:underline"
+                      ><p>0793 850 303</p></a
+                    >
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h2
+                  class="mb-6 text-sm font-semibold text-white uppercase dark:text-white"
+                >
+                  Links
+                </h2>
+                <ul class="text-gray-500 dark:text-gray-400 font-medium">
+                  <li class="mb-4">
+                    <a href="#" class="hover:underline">Events</a>
+                  </li>
+
+                  <li class="mb-4">
+                    <a href="#" class="hover:underline">School Fees</a>
+                  </li>
+
+                  <li>
+                    <a href="#" class="hover:underline"
+                      >Terms &amp; Conditions</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <hr
+            class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8"
+          />
+          <div class="sm:flex sm:items-center sm:justify-between">
+            <span class="text-sm text-white sm:text-center dark:text-gray-400"
+              >© 2024
+              <a href="https://kiarutara.co.ke/" class="hover:underline"
+                >Kiarutara™</a
+              >. All Rights Reserved. By PAUL KARANJA
+            </span>
+            <div class="flex mt-4 sm:justify-center sm:mt-0">
+              <a
+                href="#"
+                class="text-gray-500 hover:text-white dark:hover:text-white"
+              >
+                <svg
+                  class="w-4 h-4"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  viewBox="0 0 8 19"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M6.135 3H8V0H6.135a4.147 4.147 0 0 0-4.142 4.142V6H0v3h2v9.938h3V9h2.021l.592-3H5V3.591A.6.6 0 0 1 5.592 3h.543Z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                <span class="sr-only">Facebook page</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Scroll Top -->
+    <a
+      href="#"
+      id="scroll-top"
+      class="scroll-top d-flex align-items-center justify-content-center"
+      ><i class="bi bi-arrow-up-short"></i
+    ></a>
+
+    <!-- Vendor JS Files -->
+    <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+    <!-- PHP Email Form Validation -->
+    <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+
+    <!-- AOS Animation JS -->
+    <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+
+    <!-- Glightbox JS -->
+    <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+
+    <!-- PureCounter Vanilla JS -->
+    <script src="{% static 'assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
+
+    <!-- Swiper JS -->
+    <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+
+    <!-- Main JS File -->
+    <script src="{% static 'assets/js/main.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+  </body>
+</html>

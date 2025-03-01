@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        // Function to get CSRF token from cookies
+        function getCookie(name) {
+            var cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                var cookies = document.cookie.split(';');
+                for (var i = 0; i < cookies.length; i++) {
+                    var cookie = jQuery.trim(cookies[i]);
+                    // Does this cookie string begin with the name we want?
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+
+        $(document).ready(function() {
+            var typingTimer; // Timer identifier
+            var doneTypingInterval = 300; // Time in ms (0.3 seconds)
+            var $input = $('#search');
+
+            $input.on('keyup', function() {
+                clearTimeout(typingTimer);
+                typingTimer = setTimeout(fetchResults, doneTypingInterval);
+            });
+
+            $input.on('keydown', function() {
+                clearTimeout(typingTimer);
+            });
+
+            function fetchResults() {
+                var query = $input.val();
+                if (query.length > 0) {
+                    $.ajax({
+                        url: '/search/',
+                        method: 'GET',
+                        data: { 'query': query },
+                        beforeSend: function() {
+                            $('#loading').show();
+                        },
+                        complete: function() {
+                            $('#loading').hide();
+                        },
+                        success: function(data) {
+                            var results = $('#results');
+                            results.empty();
+                           
+                            if (data.length > 0) {
+                                // Assuming 'results' is the container where you want to append items
+                                data.forEach(function(item) {
+                                    // Create list item container
+                                    var listItem = $('<li class="py-3 sm:py-4">');
+                            
+                                    // Create inner div for flex layout
+                                    var innerDiv = $('<div class="flex items-center border-b border-blue-400">');
+                            
+                                    // Left side content (artist and title)
+                                    var leftContent = $('<div class="flex-1 w-full ">');
+                                    leftContent.append('<p class="text-sm w-44 text-gray-500 truncate dark:text-gray-400"><span class="bg-blue-600 text-xs p-1 text-white rounded-xl text-center">N</span> ' + item.artist + '</p>');
+                                    leftContent.append('<p class="text-sm font-bold text-gray-700 truncate dark:text-white">' + item.title + '</p>');
+                            
+                                    // Right side content (print button)
+                                    var rightContent = $('<div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">');
+                                    var printButton = $('<button class="bg-blue-600 text-xs text-white py-1 px-2 rounded-lg font-normal">Add to queue</button>');
+                                    printButton.attr('data-id', item.id);
+                                    printButton.on('click', function() {
+                                        var songId = $(this).attr('data-id');
+                                        printSongId(songId);
+                                        $input.val(''); // Clear the search input
+                                        $('#results').empty(); // Clear the search results
+                                        $('#results').append('<li class="py-3 sm:py-4 text-green-500">Song added to queue successfully!</li>'); // Show success message
+                                    });
+                                    rightContent.append(printButton);
+                            
+                                    // Append left and right content to inner div
+                                    innerDiv.append(leftContent);
+                                    innerDiv.append(rightContent);
+                            
+                                    // Append inner div to list item
+                                    listItem.append(innerDiv);
+                            
+                                    // Append list item to results container
+                                    $('#results').append(listItem);
+                                });
+                            } else {
+                                // If no results found
+                                $('#results').append('<li class="py-3 sm:py-4">No results found</li>');
+                            }
+                        },
+                        error: function(error) {
+                            $('#results').text('An error occurred.');
+                        }
+                    });
+                } else {
+                    $('#results').empty();
+                }
+            }
+
+            function printSongId(songId) {
+                var csrftoken = getCookie('csrftoken'); // Get CSRF token from cookies
+                $.ajax({
+                    url: '/print-song-id/',
+                    method: 'POST',
+                    headers: { 'X-CSRFToken': csrftoken }, // Include CSRF token in headers
+                    data: { 'song_id': songId },
+                    success: function(response) {
+                        console.log('Song ID printed:', songId);
+                        // Handle success response as needed
+                    },
+                    error: function(error) {
+                        console.error('Error printing song ID:', error);
+                        // Handle error response as needed
+                    }
+                });
+            }
+
+            $('#search-form').on('submit', function(event) {
+                event.preventDefault(); // Prevent the default form submission
+                fetchResults(); // Trigger the search when the button is clicked
+            });
+        });
+    </script>
+    <style>
+        #loading {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <form id="search-form" method="get">
+            {% comment %} <input type="text" id="search" name="query" autocomplete="off" placeholder="Search...">
+            <button type="submit">Search</button> {% endcomment %}
+        <div class='lg:my-3 text-center my-2   lg:mt-4 text-lg dark:text-gray-200 text-blue-600 font-bold'> 
+            Suggest your favorite songs
+        </div>
+        <div class="relative flex items-center">
+            <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                <svg class="w-3 h-3 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                </svg>
+            </div>
+            <input type="search" id="search" name='query' autocomplete="off" class="block w-full p-2 ps-8 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 placeholder-gray-600 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-100 dark:border-gray-600 dark:placeholder-gray-600 dark:text-gray-800 dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Suggest your song..." required />
+            <button type="submit" class="text-white absolute end-1.5 bottom-1.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-1 mt-3 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
+        </div>
+    </form>
+    
+    <div id="loading">Loading...</div>
+
+    <ul id="results" class='dark:text-gray-300 text-gray-500 text-xs p-2'>
+        Search results will appear here.
+    </ul>
+</body>
+</html>

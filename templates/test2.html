@@ -1,0 +1,415 @@
+{% extends "base.html" %} {% load static %} {% block head_title %}kiarutara -
+home{% endblock %} {% block content %}
+<div class="lg:h-screen lg:overflow-y-hidden bg-slate-200">
+  <nav class="border-gray-200 bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
+    <div
+      class="lg:px-72  flex flex-wrap items-center justify-between mx-auto p-4"
+    >
+      <a href="#" class="flex w-full items-center space-x-3 rtl:space-x-reverse">
+        
+        <span
+          class="self-center text-center w-full  text-gray-500 uppercase lg:text-sm text-xs truncate font-semibold whitespace-nowrap dark:text-white"
+          style="
+          font-weight: 500;
+          font-family: Fredoka, sans-serif;
+        "
+          >kiarutara Mixed
+          Day & Boarding
+          Comprehensive school </span
+        >
+      </a>
+    </div>
+  </nav>
+
+  <div class="text-center lg:pt-10 pt-10">
+    <h1
+      class="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-2xl lg:text-4xl"
+    >
+      Self-Service
+      <span
+        class="underline underline-offset-3 decoration-8 decoration-blue-600 dark:decoration-blue-600"
+      >
+        Portal</span
+      >
+    </h1>
+    <p class="text-sm font-normal text-gray-500 lg:text-xl dark:text-gray-400">
+      Log into the portal to view your academic information, receive
+      personalized communication, and use our self-service tools.
+    </p>
+  </div>
+
+  {% if messages %} {% for message in messages %}
+
+  <div
+    id="alert-1"
+    class="flex items-center justify-center lg:mx-auto container px-4 lg:p-4 py-2 my-2 mb-4 text-blue-800 rounded-lg bg-blue-100 dark:bg-gray-800 dark:text-blue-400"
+    role="alert"
+  >
+    <svg
+      class="flex-shrink-0 w-4 h-4"
+      aria-hidden="true"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="currentColor"
+      viewBox="0 0 20 20"
+    >
+      <path
+        d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
+      />
+    </svg>
+    <span class="sr-only">Info</span>
+    <div class="ms-3 text-sm font-medium">{{ message }}</div>
+    <button
+      type="button"
+      class="ms-auto -mx-1.5 -my-1.5 bg-blue-100 text-blue-500 rounded-lg focus:ring-2 focus:ring-blue-400 p-1.5 hover:bg-blue-200 inline-flex items-center justify-center h-8 w-8 dark:bg-blue-800 dark:text-blue-400 dark:hover:bg-blue-700"
+      data-dismiss-target="#alert-1"
+      aria-label="Close"
+    >
+      <span class="sr-only">Close</span>
+      <svg
+        class="w-3 h-3"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 14 14"
+      >
+        <path
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+        />
+      </svg>
+    </button>
+  </div>
+  {% endfor %} {% endif %}
+
+  <div
+    class="gap-4 h-screen lg:pb-40 lg:pt-20 py-10 flex  justify-center"
+  >
+    <div class="flex lg:w-[80%] lg:px-20 gap-4 lg:flex-row flex-col">
+      <div class="lg:w-1/3 w-full">
+        <div
+          class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-7 h-7 lg:w-10 lg:h-10 text-gray-500 dark:text-gray-400 mb-3"
+            viewBox="0 0 20 20"
+          >
+            <path
+              fill="currentColor"
+              d="M8.506 3.4a3 3 0 0 1 2.988 0l7.255 4.166a.5.5 0 0 1 0 .867L16 10.01v4.49a.5.5 0 0 1-.146.354l-.002.001l-.002.003l-.007.006l-.023.022l-.08.074q-.105.095-.301.248a8 8 0 0 1-1.141.733A9.1 9.1 0 0 1 10 17a9.1 9.1 0 0 1-4.298-1.06a8 8 0 0 1-1.14-.733a6 6 0 0 1-.382-.322A.53.53 0 0 1 4 14.5v-4.488L2 8.863v4.636a.5.5 0 0 1-1 0V8a.5.5 0 0 1 .26-.439zm2.988 9.198a3 3 0 0 1-2.988 0L5 10.585v3.691q.07.06.173.14a7 7 0 0 0 1 .642c.88.47 2.175.941 3.827.941a8.1 8.1 0 0 0 3.827-.94A7 7 0 0 0 15 14.276v-3.692zm-.498-8.33a2 2 0 0 0-1.992 0l-6.5 3.731l6.5 3.732a2 2 0 0 0 1.992 0l6.5-3.732z"
+            />
+          </svg>
+          <a href="#">
+            <h5
+              class="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white"
+            >
+              Student Portal Homepage
+            </h5>
+          </a>
+          <p class="mb-3 font-normal text-gray-500 dark:text-gray-400">
+            Current Student info, login here
+          </p>
+          <a
+            href="{% url 'register_user' %}"
+            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          >
+            Login
+            <svg
+              class="rtl:rotate-180 w-3.5 h-3.5 ms-2"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 14 10"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M1 5h12m0 0L9 1m4 4L9 9"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="lg:w-1/3 w-full">
+        <div
+          class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-7 h-7 lg:h-10 lg:w-10 text-gray-500 dark:text-gray-400 mb-3"
+            viewBox="0 0 24 24"
+          >
+            <g
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.5"
+              color="currentColor"
+            >
+              <path
+                d="M2 2h14c1.886 0 2.828 0 3.414.586S20 4.114 20 6v6c0 1.886 0 2.828-.586 3.414S17.886 16 16 16H9m1-9.5h6M2 17v-4c0-.943 0-1.414.293-1.707S3.057 11 4 11h2m-4 6h4m-4 0v5m4-5v-6m0 6v5m0-11h6"
+              />
+              <path d="M6 6.5a2 2 0 1 1-4 0a2 2 0 0 1 4 0" />
+            </g>
+          </svg>
+          <a href="#">
+            <h5
+              class="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white"
+            >
+              Facaulty Homepage
+            </h5>
+          </a>
+          <p class="mb-3 font-normal text-gray-500 dark:text-gray-400">
+            Staff Login Here
+          </p>
+          <a
+            href="staff/"
+            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          >
+            Login
+            <svg
+              class="rtl:rotate-180 w-3.5 h-3.5 ms-2"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 14 10"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M1 5h12m0 0L9 1m4 4L9 9"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="lg:w-1/3 w-full">
+        <div
+          class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-7 h-7 lg:h-10 lg:w-10 text-gray-500 dark:text-gray-400 mb-3"
+            viewBox="0 0 15 15"
+          >
+            <path
+              fill="currentColor"
+              fill-rule="evenodd"
+              d="M4.5 1a.5.5 0 0 1 .5.5V2h5v-.5a.5.5 0 0 1 1 0V2h1.5A1.5 1.5 0 0 1 14 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-10A1.5 1.5 0 0 1 1 12.5v-9A1.5 1.5 0 0 1 2.5 2H4v-.5a.5.5 0 0 1 .5-.5M10 3v.5a.5.5 0 0 0 1 0V3h1.5a.5.5 0 0 1 .5.5V5H2V3.5a.5.5 0 0 1 .5-.5H4v.5a.5.5 0 0 0 1 0V3zM2 6v6.5a.5.5 0 0 0 .5.5h10a.5.5 0 0 0 .5-.5V6zm5 1.5a.5.5 0 1 1 1 0a.5.5 0 0 1-1 0M9.5 7a.5.5 0 1 0 0 1a.5.5 0 0 0 0-1m1.5.5a.5.5 0 1 1 1 0a.5.5 0 0 1-1 0m.5 1.5a.5.5 0 1 0 0 1a.5.5 0 0 0 0-1M9 9.5a.5.5 0 1 1 1 0a.5.5 0 0 1-1 0M7.5 9a.5.5 0 1 0 0 1a.5.5 0 0 0 0-1M5 9.5a.5.5 0 1 1 1 0a.5.5 0 0 1-1 0M3.5 9a.5.5 0 1 0 0 1a.5.5 0 0 0 0-1M3 11.5a.5.5 0 1 1 1 0a.5.5 0 0 1-1 0m2.5-.5a.5.5 0 1 0 0 1a.5.5 0 0 0 0-1m1.5.5a.5.5 0 1 1 1 0a.5.5 0 0 1-1 0m2.5-.5a.5.5 0 1 0 0 1a.5.5 0 0 0 0-1"
+              clip-rule="evenodd"
+            />
+          </svg>
+          <a href="#">
+            <h5
+              class="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white"
+            >
+              Events Schedule
+            </h5>
+          </a>
+          <p class="mb-3 font-normal text-gray-500 dark:text-gray-400">
+            Stay upto date with upcoming events
+          </p>
+          <a
+            href="{% url 'login' %}"
+            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          >
+            Login
+            <svg
+              class="rtl:rotate-180 w-3.5 h-3.5 ms-2"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 14 10"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M1 5h12m0 0L9 1m4 4L9 9"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endblock content %}
+</div>
+
+
+
+<div
+id="default-carousel"
+class="relative mx-auto container mx-4 h-[70%] lg:block hidden w-[90%]"
+data-carousel="slide"
+>
+<!-- Carousel wrapper -->
+<div
+  class="relative overflow-hidden mx-2  rounded-lg h-96"
+>
+  <!-- Item 1 -->
+  <div class="hidden duration-700 ease-in-out" data-carousel-item>
+    <img
+      src="{% static 'assets/img/img1.JPG' %}"
+      class="absolute h-[500px] bg-cover block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+      loading="lazy"
+      alt="..."
+    />
+  </div>
+  <!-- Item 2 -->
+  <div class="hidden duration-700 ease-in-out" data-carousel-item>
+    <img
+      src="{% static 'assets/img/img2.JPG' %}"
+      class="absolute h-[500px] bg-cover block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+      loading="lazy"
+      alt="..."
+    />
+  </div>
+  <!-- Item 3 -->
+  <div class="hidden duration-700 ease-in-out" data-carousel-item>
+    <img
+      src="{% static 'assets/img/img3.JPG' %}"
+      class="absolute h-[500px] bg-cover block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+      loading="lazy"
+      alt="..."
+    />
+  </div>
+  <!-- Item 4 -->
+  <div class="hidden duration-700 ease-in-out" data-carousel-item>
+    <img
+      src="{% static 'assets/img/img4.JPG' %}"
+      class="absolute bg-cover block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+      loading="lazy"
+      alt="..."
+    />
+  </div>
+  <!-- Item 5 -->
+  <div class="hidden duration-700 ease-in-out" data-carousel-item>
+    <img
+      src="{% static 'assets/img/img5.JPG' %}"
+      class="absolute bg-cover block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+      loading="lazy"
+      alt="..."
+    />
+  </div>
+  <!-- Item 5 -->
+  <div class="hidden duration-700 ease-in-out" data-carousel-item>
+    <img
+      src="{% static 'assets/img/img6.JPG' %}"
+      class="absolute bg-cover block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+      loading="lazy"
+      alt="..."
+    />
+  </div>
+  <!-- Item 5 -->
+  <div class="hidden duration-700 ease-in-out" data-carousel-item>
+    <img
+      src="{% static 'assets/img/img7.JPG' %}"
+      class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+      alt="..."
+    />
+  </div>
+</div>
+<!-- Slider indicators -->
+<div
+  class="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse"
+>
+  <button
+    type="button"
+    class="w-3 h-3 rounded-full"
+    aria-current="true"
+    aria-label="Slide 1"
+    data-carousel-slide-to="0"
+  ></button>
+  <button
+    type="button"
+    class="w-3 h-3 rounded-full"
+    aria-current="false"
+    aria-label="Slide 2"
+    data-carousel-slide-to="1"
+  ></button>
+  <button
+    type="button"
+    class="w-3 h-3 rounded-full"
+    aria-current="false"
+    aria-label="Slide 3"
+    data-carousel-slide-to="2"
+  ></button>
+  <button
+    type="button"
+    class="w-3 h-3 rounded-full"
+    aria-current="false"
+    aria-label="Slide 4"
+    data-carousel-slide-to="3"
+  ></button>
+  <button
+    type="button"
+    class="w-3 h-3 rounded-full"
+    aria-current="false"
+    aria-label="Slide 5"
+    data-carousel-slide-to="4"
+  ></button>
+</div>
+<!-- Slider controls -->
+<button
+  type="button"
+  class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+  data-carousel-prev
+>
+  <span
+    class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none"
+  >
+    <svg
+      class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180"
+      aria-hidden="true"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 6 10"
+    >
+      <path
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M5 1 1 5l4 4"
+      />
+    </svg>
+    <span class="sr-only">Previous</span>
+  </span>
+</button>
+<button
+  type="button"
+  class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+  data-carousel-next
+>
+  <span
+    class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none"
+  >
+    <svg
+      class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180"
+      aria-hidden="true"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 6 10"
+    >
+      <path
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="m1 9 4-4-4-4"
+      />
+    </svg>
+    <span class="sr-only">Next</span>
+  </span>
+</button>
+</div>

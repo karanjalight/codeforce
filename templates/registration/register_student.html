@@ -1,0 +1,341 @@
+{% extends "dashboard-base.html" %} {% load static %} {% block content %}
+<section>
+  <div class="flex lg:h-screen lg:flex-row flex-col-reverse">
+    <div
+    {% comment %} style="background-image: url('https://rubiskenya.com/wp-content/uploads/2020/06/logo-white.svg');" {% endcomment %}
+    class="lg:w-1/2 px-4 py-10 w-full bg-blue-600 flex flex-col items-center justify-between lg:py-20"
+>
+      <div
+        class="text-3xl text-white lg:text-6xl"
+        style="
+          font-weight: 700;
+          margin: 20px 0;
+          font-family: Fredoka, sans-serif;
+        "
+      >
+        kiarutara Mixed
+        <div
+          class="text-3xl mt-10 text-white lg:text-4xl text-left"
+          style="font-weight: 700; font-family: Fredoka, sans-serif"
+        >
+          Day & Boarding
+          <br />
+          Comprehensive school
+        </div>
+      </div>
+
+      <div id="default-carousel" class="relative w-full" data-carousel="slide">
+        <!-- Carousel wrapper -->
+        <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+          <!-- Item 1 -->
+          <div
+            class="hidden text-center flex items-center justify-center duration-700 ease-in-out"
+            data-carousel-item
+          >
+            <div class="text-white text-2xl font-bold">Pay for school fees</div>
+          </div>
+          <!-- Item 2 -->
+          <div
+            class="hidden text-center flex items-center justify-center duration-700 ease-in-out"
+            data-carousel-item
+          >
+            <div class="text-white text-2xl font-bold">
+              Access Student's Results
+            </div>
+          </div>
+          <!-- Item 3 -->
+          <div
+            class="hidden text-center flex items-center justify-center duration-700 ease-in-out"
+            data-carousel-item
+          >
+            <div class="text-white text-2xl font-bold">Events Schedule</div>
+          </div>
+          <!-- Item 4 -->
+          <div
+            class="hidden text-center flex items-center justify-center duration-700 ease-in-out"
+            data-carousel-item
+          >
+            <div class="text-white text-2xl font-bold">
+              Mpesa and Bank Transfers now available
+            </div>
+          </div>
+          <!-- Item 5 -->
+          <div
+            class="hidden text-center flex items-center justify-center duration-700 ease-in-out"
+            data-carousel-item
+          >
+            <div class="text-white text-2xl font-bold">
+              Enjoy Convinence Today
+            </div>
+          </div>
+        </div>
+        <!-- Slider indicators -->
+        <div
+          class="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse"
+        >
+          <button
+            type="button"
+            class="w-3 h-3 rounded-full"
+            aria-current="true"
+            aria-label="Slide 1"
+            data-carousel-slide-to="0"
+          ></button>
+          <button
+            type="button"
+            class="w-3 h-3 rounded-full"
+            aria-current="false"
+            aria-label="Slide 2"
+            data-carousel-slide-to="1"
+          ></button>
+          <button
+            type="button"
+            class="w-3 h-3 rounded-full"
+            aria-current="false"
+            aria-label="Slide 3"
+            data-carousel-slide-to="2"
+          ></button>
+          <button
+            type="button"
+            class="w-3 h-3 rounded-full"
+            aria-current="false"
+            aria-label="Slide 4"
+            data-carousel-slide-to="3"
+          ></button>
+          <button
+            type="button"
+            class="w-3 h-3 rounded-full"
+            aria-current="false"
+            aria-label="Slide 5"
+            data-carousel-slide-to="4"
+          ></button>
+        </div>
+        <!-- Slider controls -->
+        <button
+          type="button"
+          class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+          data-carousel-prev
+        >
+          <span
+            class="inline-flex items-center justify-center w-10 h-10 rounded-full group-hover:bg-white/50 dark:group-hover:bg-gray-400/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none"
+          >
+            <svg
+              class="w-4 h-4 text-white dark:text-blue-800 rtl:rotate-180"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 6 10"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5 1 1 5l4 4"
+              />
+            </svg>
+            <span class="sr-only">Previous</span>
+          </span>
+        </button>
+        <button
+          type="button"
+          class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+          data-carousel-next
+        >
+          <span
+            class="inline-flex items-center justify-center w-10 h-10 rounded-full group-hover:bg-white/50 dark:group-hover:bg-gray-400/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none"
+          >
+            <svg
+              class="w-4 h-4 text-white dark:text-blue-800 rtl:rotate-180"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 6 10"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="m1 9 4-4-4-4"
+              />
+            </svg>
+            <span class="sr-only">Next</span>
+          </span>
+        </button>
+      </div>
+    </div>
+    <div
+      class="lg:w-1/2 lg:py-10 py-32 w-full text-white flex items-center justify-center bg-slate-200"
+    >
+      <div class="lg:w-[60%] w-full px-6">
+        <ol
+          class="flex items-center w-full p-3 space-x-2 gap-4 text-sm font-medium text-center text-gray-500  border border-gray-200 rounded-lg shadow-sm  sm:text-base "
+        >
+          <li class="flex items-center">
+            <span
+              class="flex items-center justify-center w-5 h-5 me-2 text-xs border border-gray-500 rounded-full shrink-0 dark:border-gray-400"
+            >
+              1
+            </span>
+            Parent <span class="hidden sm:inline-flex sm:ms-2">Info</span>
+            <svg
+              class="w-3 h-3 ms-2 sm:ms-4 rtl:rotate-180"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 12 10"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="m7 9 4-4-4-4M1 9l4-4-4-4"
+              />
+            </svg>
+          </li>
+          <li class="flex items-center text-blue-600 dark:text-blue-500">
+            <span
+              class="flex items-center justify-center w-5 h-5 me-2 text-xs border border-blue-600 rounded-full shrink-0 dark:border-blue-500"
+            >
+              2
+            </span>
+            Student <span class="hidden sm:inline-flex sm:ms-2">Info</span>
+            <svg
+              class="w-3 h-3 ms-2 sm:ms-4 rtl:rotate-180"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 12 10"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="m7 9 4-4-4-4M1 9l4-4-4-4"
+              />
+            </svg>
+          </li>
+          <li class="flex items-center">
+            <span
+              class="flex items-center justify-center w-5 h-5 me-2 text-xs border border-gray-500 rounded-full shrink-0 dark:border-gray-400"
+            >
+              3
+            </span>
+           Portal
+          </li>
+        </ol>
+
+        <h2
+          class="text-left lg:text-4xl text-gray-700 text-3xl font-bold"
+          style="
+            font-weight: 700;
+            margin: 20px 0;
+            font-family: Fredoka, sans-serif;
+            text-align: left;
+          "
+        >
+          Confirm Student info
+        </h2>
+        <p class="text-gray-500 text-sm my-2 lg:my-6">
+          Search and select your student to access their portal
+        </p>
+        {% if messages %} {% for message in messages %}
+        <div
+          id="alert-2"
+          class="flex items-center p-4 mb-4 text-red-800 rounded-lg bg-red-50 dark:text-red-400"
+          role="alert"
+        >
+          <svg
+            class="flex-shrink-0 w-4 h-4"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+          >
+            <path
+              d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
+            />
+          </svg>
+          <span class="sr-only">Info</span>
+          <div class="ms-3 text-sm font-medium">Alert: {{ message }}</div>
+          <button
+            type="button"
+            class="ms-auto -mx-1.5 -my-1.5 bg-red-50 text-red-500 rounded-lg focus:ring-2 focus:ring-red-400 p-1.5 hover:bg-red-200 inline-flex items-center justify-center h-8 w-8 dark:text-red-400 dark:hover:bg-gray-700"
+            data-dismiss-target="#alert-2"
+            aria-label="Close"
+          >
+            <span class="sr-only">Close</span>
+            <svg
+              class="w-3 h-3"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 14 14"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+              />
+            </svg>
+          </button>
+        </div>
+        {% endfor %} {% endif %}
+
+        <form class="w-full" method="post">
+          <!-- Email -->
+          {% csrf_token %}
+          
+         
+          <div class="my-3">
+            <label
+              for="admission_no"
+              name="admission_no"
+              class="block mb-2 text-sm font-medium text-gray-900"
+              >Student Assesment Number</label
+            >
+            <div class="relative w-full">
+              <div
+                class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-5 h-5 text-gray-500 dark:text-gray-400"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M13.003 7.754a.75.75 0 0 1 .75-.75h5.232a.75.75 0 0 1 .53 1.28l-2.776 2.777c.55.097 1.057.253 1.492.483c.905.477 1.504 1.284 1.504 2.418c0 .966-.471 1.75-1.172 2.27c-.687.511-1.587.77-2.521.77c-1.367 0-2.274-.528-2.667-.756a.75.75 0 0 1 .755-1.297c.331.193.953.553 1.912.553c.673 0 1.243-.188 1.627-.473c.37-.275.566-.635.566-1.067c0-.5-.219-.836-.703-1.091c-.538-.284-1.375-.443-2.471-.443a.75.75 0 0 1-.53-1.28l2.643-2.644h-3.421a.75.75 0 0 1-.75-.75M7.88 15.215a1.4 1.4 0 0 0-1.446.83a.75.75 0 0 1-1.37-.61a2.9 2.9 0 0 1 2.986-1.71c.589.06 1.139.323 1.557.743c.434.446.685 1.058.685 1.778c0 1.641-1.254 2.437-2.12 2.986c-.538.341-1.18.694-1.495 1.273H9.75a.75.75 0 0 1 0 1.5h-4a.75.75 0 0 1-.75-.75c0-1.799 1.337-2.63 2.243-3.21c1.032-.659 1.55-1.031 1.55-1.8c0-.355-.116-.584-.26-.732a1.07 1.07 0 0 0-.652-.298Zm.234-13.121a.75.75 0 0 1 .386.656V9h1.252a.75.75 0 0 1 0 1.5H5.75a.75.75 0 0 1 0-1.5H7V4.103l-.853.533a.749.749 0 1 1-.795-1.272l2-1.25a.75.75 0 0 1 .762-.02"
+                  />
+                </svg>
+              </div>
+              <input
+                type="text"
+                id="admission_no"
+                name="admission_no"
+                class="bg-gray-50 w-full border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="Assesment no"
+              />
+            </div>
+          </div>
+          
+          <button
+            type="submit"
+            class="text-white my-4 w-full bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          >
+            Register new account
+          </button>
+        </form>
+        <p class="my-4 text-gray-700 text-sm">
+          Already have an account?
+          <a href="{% url 'login' %}" class="text-blue-600">Login</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock content %}

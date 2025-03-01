@@ -1,0 +1,619 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>CodeForce</title>
+    <meta
+      name="description"
+      content="School portal, fee management, online fee payment, Mpesa to school fees"
+    />
+    <meta
+      name="keywords"
+      content="School portal, fee management, online fee payment, Mpesa to school fees"
+    />
+    <!-- Favicons -->
+    <link
+      href="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/education-icon%2C-book-icon-logo-school-logo-design-template-2f5700bab7fe195a2659cf45edffcb5c_screen.jpg?ts=1659803081"
+      rel="icon"
+    />
+    <link
+      href="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/education-icon%2C-book-icon-logo-school-logo-design-template-2f5700bab7fe195a2659cf45edffcb5c_screen.jpg?ts=1659803081' %}"
+      rel="apple-touch-icon"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- assets/ CSS Files -->
+    <!-- Bootstrap CSS -->
+    <link
+      href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap Icons -->
+    <link
+      href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}"
+      rel="stylesheet"
+    />
+
+    <!-- AOS Animation CSS -->
+    <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet" />
+
+    <!-- Glightbox CSS -->
+    <link
+      href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}"
+      rel="stylesheet"
+    />
+
+    <!-- Swiper CSS -->
+    <link
+      href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}"
+      rel="stylesheet"
+    />
+
+    <!-- Main CSS File -->
+    <link href="{% static 'assets/css/main.css' %}" rel="stylesheet" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body class="index-page">
+    <header id="header" class="header d-flex align-items-center sticky-top">
+      <div
+        class="container-fluid container-xl position-relative d-flex align-items-center"
+      >
+        <a href="/" class="logo d-flex align-items-center me-auto">
+          <!-- Uncomment the line below if you also wish to use an image logo -->
+          <!-- <img src="assets/img/logo.png" alt=""> -->
+          <h1 class="sitename text-sm">CodeForce</h1>
+        </a>
+
+        <nav id="navmenu" class="navmenu">
+          <ul>
+            <li>
+              <a href="/" class="active">Home<br /></a>
+            </li>
+            {% comment %}
+            <li><a href="{% url 'core:teachers' %}">Teachers</a></li>
+            {% endcomment %} {% comment %}
+            <li><a href="/events">Events </a></li>
+            {% endcomment %}
+            <li><a href="/school-fees">Pricing</a></li>
+            <li><a href="/contacts">Contact Us</a></li>
+          </ul>
+          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+
+        <a class="btn-getstarted" href="/home">Login</a>
+      </div>
+    </header>
+
+    <main class="main">
+      <!-- Hero Section -->
+      <section id="hero" class="hero section dark-background">
+        <img
+          src="https://itbrief.com.au/uploads/story/2023/07/04/GettyImages-1468068287.webp"
+          alt="Kiarutara school home"
+          data-aos="fade-in"
+          loading="lazy"
+        />
+
+        <div class="container text-center">
+          <h2
+            data-aos="fade-up"
+            class="text-2xl text-center"
+            data-aos-delay="100"
+          >
+            AI-Powered Innovation for
+          </h2>
+          <h2
+            data-aos="fade-up"
+            class="text-2xl mt-3 text-center"
+            data-aos-delay="100"
+          >
+            Businesses
+          </h2>
+          <p data-aos="fade-up" data-aos-delay="200">
+            Access Top AI Talent to Build and Scale Your Vision.
+          </p>
+          <div
+            class="text-center mt-4 flex items-center gap-4 justify-center"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <a
+              href="/home"
+              class="btn-get-started featured"
+              style="background-color: sky; border: 1px solid sky"
+              >Submit Project</a
+            >
+            <a
+              href="/home"
+              class="btn-get-started featured"
+              style="background-color: #23aadc; border: 1px solid #23aadc"
+              >Hire Talent
+            </a>
+          </div>
+        </div>
+      </section>
+      <!-- /Hero Section -->
+
+      <!-- About Section -->
+      <section id="about" class="about section">
+        <div class="container">
+          <div class="row gy-4">
+            <div
+              class="col-lg-6 order-1 order-lg-2"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              <img
+                src="https://img.freepik.com/premium-photo/young-african-male-programmer-scrolling-touchpad-while-looking-through-new-computer-software-internet_274679-30551.jpg"
+                class="img-fluid"
+                alt="about Kiarutara"
+                loading="lazy"
+              />
+            </div>
+
+            <div
+              class="col-lg-6 order-2 order-lg-1 content"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <h3>What is CodeForce?</h3>
+              <p>
+                CodeForce is an AI Development Lab Helping Businesses and People
+                Build AI-based Projects. We integrate data, software
+                development, and AI to drive innovation beyond automation. Our
+                structured outsourcing model connects you with specialized
+                expertise, ensuring your vision becomes reality.
+              </p>
+              <ul>
+                <li>
+                  <i class="bi bi-check-circle"></i>
+                  <span>200+ AI experts</span>
+                </li>
+                <li>
+                  <i class="bi bi-check-circle"></i>
+                  <span>20+ Projects completed</span>
+                </li>
+                <li>
+                  <i class="bi bi-check-circle"></i>
+                  <span>Flexible Pricing</span>
+                </li>
+              </ul>
+              <a href="/ome" class="read-more"
+                ><span>Get Started</span><i class="bi bi-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- /About Section -->
+
+      <!-- Counts Section -->
+      <section id="counts" class="section counts light-background">
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+          <div class="row gy-4">
+            <div class="col-lg-3 col-md-6">
+              <div class="stats-item text-center w-100 h-100">
+                <span
+                  data-purecounter-start="0"
+                  data-purecounter-end="204"
+                  data-purecounter-duration="1"
+                  class="purecounter"
+                ></span>
+                <p>Completed Projects</p>
+              </div>
+            </div>
+            <!-- End Stats Item -->
+
+            <div class="col-lg-3 col-md-6">
+              <div class="stats-item text-center w-100 h-100">
+                <span
+                  data-purecounter-start="0"
+                  data-purecounter-end="200"
+                  data-purecounter-duration="1"
+                  class="purecounter"
+                ></span>
+                <p>AI experts</p>
+              </div>
+            </div>
+            <!-- End Stats Item -->
+
+            <div class="col-lg-3 col-md-6">
+              <div class="stats-item text-center w-100 h-100">
+                <span
+                  data-purecounter-start="0"
+                  data-purecounter-end="50"
+                  data-purecounter-duration="1"
+                  class="purecounter"
+                ></span>
+                <p>Research Papers</p>
+              </div>
+            </div>
+            <!-- End Stats Item -->
+
+            <div class="col-lg-3 col-md-6">
+              <div class="stats-item text-center w-100 h-100">
+                <span
+                  data-purecounter-start="0"
+                  data-purecounter-end="3"
+                  data-purecounter-duration="1"
+                  class="purecounter"
+                ></span>
+                <p>Countries</p>
+              </div>
+            </div>
+            <!-- End Stats Item -->
+          </div>
+        </div>
+      </section>
+      <!-- /Counts Section -->
+
+      <!-- Why Us Section -->
+      <section id="why-us" class="section why-us">
+        <div class="container">
+          <h1 style="color: #222; font-weight: bold; font-size: 32px; text-align: center; margin: 20px 0;">
+            Our Services
+          </h1>
+        
+          <div class="row gy-4">
+            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+              <div class="why-box">
+                <h3>Mission & Vision</h3>
+                <ul>
+                  <li>
+                    <strong>Vision:</strong> To inspire a future where
+                    technology amplifies human potential.
+                  </li>
+                  <li>
+                    <strong>Mission:</strong> To redefine possibilities through
+                    innovation.
+                  </li>
+                </ul>
+
+                <h3>Our Commitment</h3>
+                <ul>
+                  <li>
+                    <strong>Ethics & Integrity:</strong> We prioritize
+                    transparency and fairness.
+                  </li>
+                  <li>
+                    <strong>Highly Skilled AI Talent:</strong> We work with top
+                    AI professionals.
+                  </li>
+                  <li>
+                    <strong>Cost-Effective Solutions:</strong> We deliver
+                    high-quality results at optimal costs.
+                  </li>
+                </ul>
+
+                {% comment %}
+                <div class="text-center">
+                  <a href="#" class="more-btn">
+                    <span>Learn More</span> <i class="bi bi-chevron-right"></i>
+                  </a>
+                </div>
+                {% endcomment %}
+              </div>
+            </div>
+            <!-- End Why Box -->
+
+            <div class="col-lg-8 d-flex align-items-stretch">
+              <div class="row gy-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-xl-4">
+                  <div
+                    class="icon-box d-flex flex-column justify-content-center align-items-center"
+                  >
+                    <i class="bi bi-clipboard-data"></i>
+                    <h4>Hire Talent</h4>
+                    <p>Access top AI professionals. All around Kenya</p>
+                  </div>
+                </div>
+                <!-- End Icon Box -->
+
+                <div class="col-xl-4" data-aos="fade-up" data-aos-delay="300">
+                  <div
+                    class="icon-box d-flex flex-column justify-content-center align-items-center"
+                  >
+                    <i class="bi bi-gem"></i>
+                    <h4>Research</h4>
+                    <p>End to End Research and Development on AI Research</p>
+                  </div>
+                </div>
+                <!-- End Icon Box -->
+
+                <div class="col-xl-4" data-aos="fade-up" data-aos-delay="400">
+                  <div
+                    class="icon-box d-flex flex-column justify-content-center align-items-center"
+                  >
+                    <i class="bi bi-inboxes"></i>
+                    <h4>Product Testing</h4>
+                    <p>Ensure your product is ready for market</p>
+                  </div>
+                </div>
+                <!-- End Icon Box -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- /Why Us Section -->
+
+      <!-- About Section -->
+      <section id="about" class="about section">
+        <div class="container">
+          <div class="row gy-4">
+            <div
+              class="col-lg-6 order-2 order-lg-1 content"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <h3>Submit Project</h3>
+              <p>
+                Submit your idea of a project you want developed,
+                <br />
+                Together we will, Research, Develop and Launch.
+                <br />
+                With you all the way!
+              </p>
+              <ul>
+                <li>
+                  <i class="bi bi-check-circle"></i>
+                  <span>Flexible Pricing</span>
+                </li>
+                <li>
+                  <i class="bi bi-check-circle"></i>
+                  <span>Tailored Research</span>
+                </li>
+                <li>
+                  <i class="bi bi-check-circle"></i>
+                  <span>Recruit Best Talent.</span>
+                </li>
+              </ul>
+              <a href="/home" class="read-more"
+                ><span>Get Started</span><i class="bi bi-arrow-right"></i
+              ></a>
+            </div>
+            <div
+              class="col-lg-6 order-1 order-lg-2"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              <img
+                src="https://www.appsafrica.com/wp-content/uploads/2023/12/52702500787_5daa4b6eff_c.jpg"
+                class="img-fluid"
+                alt=""
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- /About Section -->
+
+      <!-- /Trainers Index Section -->
+    </main>
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
+    <div
+      class="flex my-40 container items-center justify-center lg:h-[40vh] h-[50vh] px-2"
+    >
+      <div
+        class="relative mx-auto w-full lg:h-64 h-80 bg-cover bg-center rounded-lg shadow-lg"
+        style="
+          background-image: url('https://static.vecteezy.com/system/resources/previews/009/750/414/non_2x/hi-tech-digital-circuit-board-futuristic-ai-pad-and-electrical-lines-connected-on-blue-lighting-background-vector.jpg');
+        "
+      >
+        <div class="absolute inset-0 bg-black opacity-50 rounded-lg"></div>
+        <div class="relative flex items-center justify-center h-full">
+          <div class="text-center text-white px-4">
+            <h4 class="text-3xl text-white md:text-4xl font-bold mb-2">
+              Access All Features
+            </h4>
+            <p class="text-sm">
+              Create Account & Login easily
+              <br />
+              Get started today!
+            </p>
+            <a
+              href="/home"
+              class="inline-block mt-4 bg-white text-black font-bold py-2 px-6 rounded-full"
+              >Get Started</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <br />
+    <br />
+    <br />
+
+
+    {% include "components/pricing.html" %}
+    <br />
+    <br />
+
+     <!-- Contact Section -->
+     <section id="contact" class="contact section">
+      <!-- End Google Maps -->
+
+      <h1 style="color: #222; font-weight: bold; font-size: 32px; text-align:center; margin: 20px 0;">
+        Contact Us
+      </h1>
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row gy-4">
+          <div class="col-lg-4">
+            <div
+              class="info-item d-flex"
+              data-aos="fade-up"
+              data-aos-delay="300"
+            >
+              <i class="bi bi-geo-alt flex-shrink-0"></i>
+              <div>
+                <h3>Address</h3>
+                <p> Mpaka road westlands, Nairobi, Kenya</p>
+              </div>
+            </div>
+            <!-- End Info Item -->
+
+            <div
+              class="info-item d-flex"
+              data-aos="fade-up"
+              data-aos-delay="400"
+            >
+              <i class="bi bi-telephone flex-shrink-0"></i>
+              <div>
+                <h3>Call Us</h3>
+                <p>  +254101559659 </p>
+              </div>
+            </div>
+            <!-- End Info Item -->
+
+            <div
+              class="info-item d-flex"
+              data-aos="fade-up"
+              data-aos-delay="500"
+            >
+              <i class="bi bi-envelope flex-shrink-0"></i>
+              <div>
+                <h3>Email Us</h3>
+                <p> info@codeforceai.org</p>
+              </div>
+            </div>
+            <!-- End Info Item -->
+          </div>
+
+          <div class="col-lg-8">
+            <h1 style="color: #222; font-weight: bold; font-size: 22px;  margin: 20px 0;">
+              Get in Touch
+            </h1>
+      
+      
+            <form
+              action="forms/contact.php"
+              method="post"
+              class="php-email-form"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <div class="row gy-4">
+                <div class="col-md-6">
+                  <input
+                    type="text"
+                    name="name"
+                    class="form-control border border-black rounded"
+                    placeholder="Your Name"
+                    required=""
+                  />
+                </div>
+
+                <div class="col-md-6">
+                  <input
+                    type="email"
+                    class="form-control border border-black rounded"
+                    name="email"
+                    placeholder="Your Email"
+                    required=""
+                  />
+                </div>
+
+                <div class="col-md-12">
+                  <input
+                    type="text"
+                    class="form-control border border-black rounded"
+                    name="subject"
+                    placeholder="Reason"
+                    required=""
+                  />
+                </div>
+
+                <div class="col-md-12">
+                  <textarea
+                    class="form-control border border-black rounded"
+                    name="message"
+                    rows="6"
+                    placeholder="Message"
+                    required=""
+                  ></textarea>
+                </div>
+
+                <div class="col-md-12 text-center">
+                  <div class="loading">Loading</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message">
+                    Your message has been sent. Thank you!
+                  </div>
+
+                  <button type="submit">Send Message</button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <!-- End Contact Form -->
+        </div>
+      </div>
+    </section>
+    <br />
+
+    <div>
+      {% include "components/footer.html" %}
+    </div>
+
+    <!-- Scroll Top -->
+    <a
+      href="#"
+      id="scroll-top"
+      class="scroll-top d-flex align-items-center justify-content-center"
+      ><i class="bi bi-arrow-up-short"></i
+    ></a>
+
+    <!-- Preloader -->
+    <div id="preloader"></div>
+
+    <!-- Vendor JS Files -->
+    <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+    <!-- PHP Email Form Validation -->
+    <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+
+    <!-- AOS Animation JS -->
+    <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+
+    <!-- Glightbox JS -->
+    <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+
+    <!-- PureCounter Vanilla JS -->
+    <script src="{% static 'assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
+
+    <!-- Swiper JS -->
+    <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+
+    <!-- Main JS File -->
+    <script src="{% static 'assets/js/main.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+  </body>
+</html>

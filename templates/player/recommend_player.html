@@ -1,0 +1,274 @@
+{% extends "dashboard-base.html" %} {% load static %} {% block content %}
+<div class="dark:bg-slate-900">
+  {% include "navbar.html" %}
+  <div
+    class="sm:ml-64 lg:px-10  dark:bg-gradient-to-r dark:from-green-900 dark:to-gray-800 bg-gradient-to-r from-slate-300 to-slate-200"
+  >
+      <div class="p-4 rounded-lg dark:border-gray-700">
+        {% if messages %} {% for message in messages %}
+        <div
+          id="alert-1"
+          class="flex items-center p-4 mb-4 text-blue-800 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400"
+          role="alert"
+        >
+          <svg
+            class="flex-shrink-0 w-4 h-4"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+          >
+            <path
+              d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
+            />
+          </svg>
+          <span class="sr-only">Info</span>
+          <div class="ms-3 text-sm font-medium">{{ message}}</div>
+          <button
+            type="button"
+            class="ms-auto -mx-1.5 -my-1.5 bg-blue-50 text-blue-500 rounded-lg focus:ring-2 focus:ring-blue-400 p-1.5 hover:bg-blue-200 inline-flex items-center justify-center h-8 w-8 dark:bg-gray-800 dark:text-blue-400 dark:hover:bg-gray-700"
+            data-dismiss-target="#alert-1"
+            aria-label="Close"
+          >
+            <span class="sr-only">Close</span>
+            <svg
+              class="w-3 h-3"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 14 14"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+              />
+            </svg>
+          </button>
+        </div>
+
+        {% endfor %} {% endif %}
+
+        <div
+          class="lg:text-3xl lg:flex-row flex-col text-xl flex gap-2 dark:text-white text-gray-700"
+          style="
+            font-weight: 700;
+            margin: 20px 0;
+            font-family: Fredoka, sans-serif;
+            text-align: left;
+          "
+        >
+          <p>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+            >
+              <path
+                fill="currentColor"
+                d="m9 4l2.5 5.5L17 12l-5.5 2.5L9 20l-2.5-5.5L1 12l5.5-2.5zm0 4.83L8 11l-2.17 1L8 13l1 2.17L10 13l2.17-1L10 11zM19 9l-1.26-2.74L15 5l2.74-1.25L19 1l1.25 2.75L23 5l-2.75 1.26zm0 14l-1.26-2.74L15 19l2.74-1.25L19 15l1.25 2.75L23 19l-2.75 1.26z"
+              />
+            </svg>
+          </p>
+          <p class="flex">
+            {% comment %} <span class="lg:block hidden">Select your &nbsp</span> {% endcomment %}
+            Select your favorite genres {% comment %} {{ session.player }} {% endcomment %}
+          </p>
+        </div>
+        <p
+          class="lg:text-xl text-lg flex gap-2  dark:text-white text-gray-700"
+          style="
+            font-weight: 700;
+            margin: 20px 0;
+            font-family: Fredoka, sans-serif;
+            text-align: left;
+          "
+        >
+          {% comment %} Users in this session: {{ session.users.count }} {% endcomment %}
+          Click on your favorite genre to select 
+        </p>
+
+        <div
+          class="text-xl flex items-center gap-2 dark:text-white text-gray-700"
+          style="
+            font-weight: 700;
+            margin: 20px 0;
+            font-family: Fredoka, sans-serif;
+            text-align: left;
+          "
+        >
+          <p>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+            >
+              <path
+                fill="currentColor"
+                d="M12 2.25a.75.75 0 0 0-.75.75v11.26a4.25 4.25 0 1 0 1.486 2.888a.76.76 0 0 0 .014-.148V7.75H18a2.75 2.75 0 1 0 0-5.5z"
+              />
+            </svg>
+          </p>
+          <p>Genre</p>
+        </div>
+
+        <form method="post"   >
+          <div class="grid mb-5 lg:grid-cols-5 grid-cols-3 gap-4 mb-4">
+            {% csrf_token %}
+        
+            {% for genre in genre %}
+            <div class="lg:h-60 h-48 rounded-xl flex flex-col   cursor-pointer genre-card 
+                        {% if genre in request.user.preferred_genres.all %}border-4 border-blue-500{% endif %}" 
+                 onclick="toggleCard(this)">
+                <div>
+                    {% if genre.image %}
+                    <img
+                        src="{{ genre.image.url }}"
+                        class="w-full rounded-xl h-20 object-cover lg:h-40"
+                        alt=""
+                    />
+                    {% else %} 
+                    <img
+                        src="https://images.pexels.com/photos/1389429/pexels-photo-1389429.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                        class="w-full rounded-xl h-20 object-cover lg:h-40"
+                        alt=""
+                    />
+                    {% endif %} 
+                </div>
+                <div class="dark:text-white text-gray-700 pt-2">
+                    <p class="text-xl font-semibold">{{ genre.name }}</p>
+                </div>
+                <input type="checkbox" name="genres" value="{{ genre.id }}" class="hidden genre-checkbox"
+                       {% if genre in request.user.preferred_genres.all %}checked{% endif %}>
+            </div>
+            {% endfor %}
+        </div>
+        
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const genreCards = document.querySelectorAll('.genre-card');
+                genreCards.forEach(card => {
+                    const checkbox = card.querySelector('.genre-checkbox');
+                    if (checkbox.checked) {
+                        card.classList.add('border-4', 'border-blue-500');
+                        card.classList.remove('dark:bg-transparent');
+                    }
+                });
+            });
+        
+            function toggleCard(card) {
+                const checkbox = card.querySelector('.genre-checkbox');
+                checkbox.checked = !checkbox.checked;
+                if (checkbox.checked) {
+                    card.classList.add('border-4', 'border-blue-500');
+                    card.classList.remove('dark:bg-transparent');
+                } else {
+                    card.classList.remove('border-4', 'border-blue-500');
+                    card.classList.add('dark:bg-transparent');
+                }
+            }
+        </script>
+        
+        
+        <button  class='bg-rose-600 rounded-xl my-10 px-16 py-2 dark:text-white text-gray-100 hover:text-rose-600 hover:bg-white ' type="submit">Save</button>
+      </form>
+
+        
+        {% comment %}
+        <div class="grid grid-cols-2 gap-4 mb-4">
+          <div
+            class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800"
+          >
+            <p class="text-2xl text-gray-400 dark:text-gray-500">
+              <svg
+                class="w-3.5 h-3.5"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 18 18"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 1v16M1 9h16"
+                />
+              </svg>
+            </p>
+          </div>
+          <div
+            class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800"
+          >
+            <p class="text-2xl text-gray-400 dark:text-gray-500">
+              <svg
+                class="w-3.5 h-3.5"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 18 18"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 1v16M1 9h16"
+                />
+              </svg>
+            </p>
+          </div>
+          <div
+            class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800"
+          >
+            <p class="text-2xl text-gray-400 dark:text-gray-500">
+              <svg
+                class="w-3.5 h-3.5"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 18 18"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 1v16M1 9h16"
+                />
+              </svg>
+            </p>
+          </div>
+          <div
+            class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800"
+          >
+            <p class="text-2xl text-gray-400 dark:text-gray-500">
+              <svg
+                class="w-3.5 h-3.5"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 18 18"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 1v16M1 9h16"
+                />
+              </svg>
+            </p>
+          </div>
+        </div>
+        {% endcomment %}
+      </div>
+    </div>
+  </div>
+
+  {% endblock content %}
+</div>

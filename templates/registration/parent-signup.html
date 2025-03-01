@@ -1,0 +1,514 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>CodeForce</title>
+    <meta
+      name="description"
+      content="School portal, fee management, online fee payment, Mpesa to school fees"
+    />
+    <meta
+      name="keywords"
+      content="School portal, fee management, online fee payment, Mpesa to school fees"
+    />
+
+    <!-- Favicons -->
+    <link
+      href="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/education-icon%2C-book-icon-logo-school-logo-design-template-2f5700bab7fe195a2659cf45edffcb5c_screen.jpg?ts=1659803081"
+      rel="icon"
+    />
+    <link
+      href="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/education-icon%2C-book-icon-logo-school-logo-design-template-2f5700bab7fe195a2659cf45edffcb5c_screen.jpg?ts=1659803081"
+      rel="apple-touch-icon"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- assets/ CSS Files -->
+    <!-- Bootstrap CSS -->
+    <link
+      href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap Icons -->
+    <link
+      href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}"
+      rel="stylesheet"
+    />
+
+    <!-- AOS Animation CSS -->
+    <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet" />
+
+    <!-- Glightbox CSS -->
+    <link
+      href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}"
+      rel="stylesheet"
+    />
+
+    <!-- Swiper CSS -->
+    <link
+      href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}"
+      rel="stylesheet"
+    />
+
+    <!-- Main CSS File -->
+    <link href="{% static 'assets/css/main.css' %}" rel="stylesheet" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body class="pricing-page">
+    <header id="header" class="header d-flex align-items-center sticky-top">
+      <div
+        class="container-fluid container-xl position-relative d-flex align-items-center"
+      >
+        <a href="/" class="logo d-flex align-items-center me-auto">
+          <!-- Uncomment the line below if you also wish to use an image logo -->
+          <!-- <img src="assets/img/logo.png" alt=""> -->
+          <h1 class="sitename text-sm">CodeForce</h1>
+        </a>
+
+       
+        <nav id="navmenu" class="navmenu">
+          <ul>
+            <li>
+              <a href="/">Home<br /></a>
+            </li>
+             
+            <li><a href="/school-fees">Pricing</a></li>
+            <li><a href="/contacts"  >Contact Us</a></li>
+          </ul>
+          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+
+        <a class="btn-getstarted " style="background-color: navy !important;" href="/home">login</a>
+ 
+      </div>
+    </header>
+
+    <main class="main">
+      <!-- Page Title -->
+      <div class="page-title" data-aos="fade">
+        <nav class="breadcrumbs" style="background-color: navy">
+          <div class="container" style="background-color: navy">
+            <ol>
+              <li><a href="/">Home</a></li>
+              <li class="current">Create Account</li>
+            </ol>
+          </div>
+        </nav>
+      </div>
+
+      <!-- End Page Title -->
+
+      <br />
+
+      <!-- Pricing Section -->
+      <section id="pricing" class="pricing section">
+        <div class="container">
+          <div class="row gy-3">
+            <div class="col-xl-3 col-lg-3"></div>
+
+            <div
+              class="col-xl-6 col-lg-6"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              <div
+                class="pricing-item featured"
+                style="border: 1px solid navy"
+              >
+                <h3>Create Account</h3>
+                <h4 class="flex items-center justify-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="72"
+                    height="72"
+                    viewBox="0 0 256 256"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="m225.27 60.21l-96-32a4 4 0 0 0-2.54 0l-96 32A4 4 0 0 0 28 64v80a4 4 0 0 0 8 0V69.55l43.88 14.63a60 60 0 0 0 24.54 91c-20.86 5.74-39 19.13-51.77 38.65a4 4 0 0 0 6.7 4.36C75.17 193.92 100.2 180 128 180s52.83 13.92 68.65 38.18a4 4 0 0 0 6.7-4.36c-12.72-19.52-30.91-32.91-51.77-38.65a60 60 0 0 0 24.54-91l49.15-16.39a4 4 0 0 0 0-7.58ZM180 120a52 52 0 1 1-92.07-33.14l38.8 12.93a3.95 3.95 0 0 0 2.54 0l38.8-12.93A51.85 51.85 0 0 1 180 120m-52-28.22L44.65 64L128 36.22L211.35 64Z"
+                    />
+                  </svg>
+                </h4>
+ 
+                <form class="w-full container" method="post">
+                  <!-- Email -->
+                  {% csrf_token %}
+                  <div>
+                    <label
+                      for="email-address-icon"
+                      class="block mb-2 text-left text-sm font-medium text-gray-900"
+                      >Your Email</label
+                    >
+                    <div class="relative w-full">
+                      <div
+                        class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none"
+                      >
+                        <svg
+                          class="w-4 h-4 text-gray-500 dark:text-gray-400"
+                          aria-hidden="true"
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="currentColor"
+                          viewBox="0 0 20 16"
+                        >
+                          <path
+                            d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z"
+                          />
+                          <path
+                            d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z"
+                          />
+                        </svg>
+                      </div>
+                      <input
+                        type="text"
+                        id="email-address-icon"
+                        name="email"
+                        class="bg-gray-50 w-full border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="name@gmail.com"
+                      />
+                    </div>
+                  </div>
+                  <!-- Names -->
+                  <div class="my-3">
+                    <label
+                      for="name-icon"
+                      class="block text-left mb-2 text-sm font-medium text-gray-900"
+                      >Full Name</label
+                    >
+                    <div class="relative w-full">
+                      <div
+                        class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none"
+                      >
+                        <!-- class="w-4 h-4 text-gray-500 dark:text-gray-400" -->
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="w-5 h-5 text-gray-500 dark:text-gray-400"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            fill="currentColor"
+                            fill-rule="evenodd"
+                            d="M12 20a7.97 7.97 0 0 1-5.002-1.756l.002.001v-.683c0-1.794 1.492-3.25 3.333-3.25h3.334c1.84 0 3.333 1.456 3.333 3.25v.683A7.97 7.97 0 0 1 12 20M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10c0 5.5-4.44 9.963-9.932 10h-.138C6.438 21.962 2 17.5 2 12m10-5c-1.84 0-3.333 1.455-3.333 3.25S10.159 13.5 12 13.5c1.84 0 3.333-1.455 3.333-3.25S13.841 7 12 7"
+                            clip-rule="evenodd"
+                          />
+                        </svg>
+                      </div>
+                      <input
+                        type="text"
+                        id="name-icon"
+                        name="username"
+                        class="bg-gray-50 w-full border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="Your name"
+                      />
+                    </div>
+                  </div>
+                  <!-- phone number -->
+                  <div class="my-3">
+                    <label
+                      for="phone"
+                      name="phone_number"
+                      class="block text-left mb-2 text-sm font-medium text-gray-900"
+                      >Phone Number</label
+                    >
+                    <div class="relative w-full">
+                      <div
+                        class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="w-5 h-5 text-gray-500 dark:text-gray-400"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            fill="currentColor"
+                            fill-rule="evenodd"
+                            d="m10.687 6.48l-.65-1.164c-.884-1.585-3.106-1.772-4.5-.379c-.836.837-1.487 1.863-1.53 2.996c-.056 1.47.217 3.728 1.83 6.173l4.278-4.278c.922-.923 1.157-2.3.572-3.349m3.485 7.405l-4.278 4.279c2.445 1.612 4.704 1.885 6.173 1.83c1.133-.043 2.159-.695 2.996-1.532c1.393-1.393 1.206-3.615-.38-4.5l-1.162-.649c-1.05-.585-2.426-.35-3.349.572"
+                            clip-rule="evenodd"
+                          />
+                          <path
+                            fill="currentColor"
+                            d="M11.025 12.976c-2.03-2.029-.91-3.148-.91-3.148l-4.279 4.278a14.247 14.247 0 0 0 1.832 2.227a14.167 14.167 0 0 0 2.226 1.83l4.278-4.277s-1.119 1.119-3.148-.91"
+                            opacity="0.5"
+                          />
+                        </svg>
+                      </div>
+                      <input
+                        type="text"
+                        id="phone-icon"
+                        name="phone_number"
+                        class="bg-gray-50 w-full border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="+254721 **** **"
+                      />
+                    </div>
+                  </div>
+                  {% comment %}
+                  <div class="my-3">
+                    <label
+                      for="admission_no"
+                      name="admission_no"
+                      class="block mb-2 text-sm font-medium text-gray-900"
+                      >Student Admission Number</label
+                    >
+                    <div class="relative w-full">
+                      <div
+                        class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="w-5 h-5 text-gray-500 dark:text-gray-400"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            fill="currentColor"
+                            d="M13.003 7.754a.75.75 0 0 1 .75-.75h5.232a.75.75 0 0 1 .53 1.28l-2.776 2.777c.55.097 1.057.253 1.492.483c.905.477 1.504 1.284 1.504 2.418c0 .966-.471 1.75-1.172 2.27c-.687.511-1.587.77-2.521.77c-1.367 0-2.274-.528-2.667-.756a.75.75 0 0 1 .755-1.297c.331.193.953.553 1.912.553c.673 0 1.243-.188 1.627-.473c.37-.275.566-.635.566-1.067c0-.5-.219-.836-.703-1.091c-.538-.284-1.375-.443-2.471-.443a.75.75 0 0 1-.53-1.28l2.643-2.644h-3.421a.75.75 0 0 1-.75-.75M7.88 15.215a1.4 1.4 0 0 0-1.446.83a.75.75 0 0 1-1.37-.61a2.9 2.9 0 0 1 2.986-1.71c.589.06 1.139.323 1.557.743c.434.446.685 1.058.685 1.778c0 1.641-1.254 2.437-2.12 2.986c-.538.341-1.18.694-1.495 1.273H9.75a.75.75 0 0 1 0 1.5h-4a.75.75 0 0 1-.75-.75c0-1.799 1.337-2.63 2.243-3.21c1.032-.659 1.55-1.031 1.55-1.8c0-.355-.116-.584-.26-.732a1.07 1.07 0 0 0-.652-.298Zm.234-13.121a.75.75 0 0 1 .386.656V9h1.252a.75.75 0 0 1 0 1.5H5.75a.75.75 0 0 1 0-1.5H7V4.103l-.853.533a.749.749 0 1 1-.795-1.272l2-1.25a.75.75 0 0 1 .762-.02"
+                          />
+                        </svg>
+                      </div>
+                      <input
+                        type="text"
+                        id="admission_no"
+                        name="admission_no"
+                        class="bg-gray-50 w-full border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="1 ** 2 "
+                      />
+                    </div>
+                  </div>
+                  {% endcomment %}
+                  <!-- Password 1 -->
+                  <div class="my-3">
+                    <label
+                      for="phone"
+                      name="password1"
+                      class="block text-left mb-2 text-sm font-medium text-gray-900"
+                      >Enter Password</label
+                    >
+                    <div class="relative w-full">
+                      <div
+                        class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="w-5 h-5 text-gray-500 dark:text-gray-400"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            fill="currentColor"
+                            d="M2 16c0-2.828 0-4.243.879-5.121C3.757 10 5.172 10 8 10h8c2.828 0 4.243 0 5.121.879C22 11.757 22 13.172 22 16c0 2.828 0 4.243-.879 5.121C20.243 22 18.828 22 16 22H8c-2.828 0-4.243 0-5.121-.879C2 20.243 2 18.828 2 16"
+                            opacity="0.5"
+                          />
+                          <path
+                            fill="currentColor"
+                            d="M8 17a1 1 0 1 0 0-2a1 1 0 0 0 0 2m4 0a1 1 0 1 0 0-2a1 1 0 0 0 0 2m5-1a1 1 0 1 1-2 0a1 1 0 0 1 2 0M6.75 8a5.25 5.25 0 0 1 10.5 0v2.004c.567.005 1.064.018 1.5.05V8a6.75 6.75 0 0 0-13.5 0v2.055a23.57 23.57 0 0 1 1.5-.051z"
+                          />
+                        </svg>
+                      </div>
+                      <input
+                        type="password"
+                        id="phone-icon"
+                        name="password1"
+                        class="bg-gray-50 w-full border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="6 digits or more"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="btn-wrap bg-white">
+                    <button type="submit" class="btn-buy">
+                      Register new account
+                    </button>
+                  </div>
+                </form>
+                <p class="my-4 text-gray-700 text-sm">
+                  Already have an account?
+                  <a href="{% url 'login' %}" class="text-blue-600">Login</a>
+                </p>
+              </div>
+            </div>
+            <div class="col-xl-3 col-lg-3"></div>
+          </div>
+        </div>
+      </section>
+
+      <br />
+      <br />
+      <br />
+      <!-- /Pricing Section -->
+    </main>
+    <div>
+      <footer class="bg-blue-900">
+        <br />
+        <br />
+        <br />
+        <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+          <div class="md:flex md:justify-between">
+            <div class="mb-6 md:mb-0">
+              <a href="https://kiarutara.co.ke/" class="flex items-center">
+                <span
+                  class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
+                >
+                  Kiarutara Mixed Day
+                  <br />
+                  & Boarding
+                  <br />
+                  Comprehensive School
+                </span>
+              </a>
+            </div>
+            <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+              <div>
+                <h2
+                  class="mb-6 text-sm font-semibold text-white uppercase dark:text-white"
+                >
+                  Resources
+                </h2>
+                <ul class="text-gray-500 dark:text-gray-400 font-medium">
+                  <li class="mb-4">
+                    <a href="https://kiarutara.co.ke/" class="hover:underline"
+                      >Home</a
+                    >
+                  </li>
+                  <li class="mb-4">
+                    <a href="https://tailwindcss.com/" class="hover:underline"
+                      >School Portal</a
+                    >
+                  </li>
+                  <li class="mb-4">
+                    <a href="#" class="hover:underline">Get started</a>
+                  </li>
+                  <li>
+                    <a href="#" class="hover:underline">Login</a>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h2
+                  class="mb-6 text-sm font-semibold text-white uppercase dark:text-white"
+                >
+                  Get In Touch
+                </h2>
+                <ul class="text-gray-500 dark:text-gray-400 font-medium">
+                  <li class="mb-4">
+                    <a
+                      href="https://github.com/themesberg/flowbite"
+                      class="hover:underline"
+                      >Facebook</a
+                    >
+                  </li>
+                  <li class="mb-4">
+                    <a
+                      href="https://github.com/themesberg/flowbite"
+                      class="hover:underline"
+                      ><p>0793 850 303</p></a
+                    >
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h2
+                  class="mb-6 text-sm font-semibold text-white uppercase dark:text-white"
+                >
+                  Links
+                </h2>
+                <ul class="text-gray-500 dark:text-gray-400 font-medium">
+                  <li class="mb-4">
+                    <a href="#" class="hover:underline">Events</a>
+                  </li>
+
+                  <li class="mb-4">
+                    <a href="#" class="hover:underline">School Fees</a>
+                  </li>
+
+                  <li>
+                    <a href="#" class="hover:underline"
+                      >Terms &amp; Conditions</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <hr
+            class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8"
+          />
+          <div class="sm:flex sm:items-center sm:justify-between">
+            <span class="text-sm text-white sm:text-center dark:text-gray-400"
+              >© 2024
+              <a href="https://kiarutara.co.ke/" class="hover:underline"
+                >Kiarutara™</a
+              >. All Rights Reserved. By PAUL KARANJA
+            </span>
+            <div class="flex mt-4 sm:justify-center sm:mt-0">
+              <a
+                href="#"
+                class="text-gray-500 hover:text-white dark:hover:text-white"
+              >
+                <svg
+                  class="w-4 h-4"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  viewBox="0 0 8 19"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M6.135 3H8V0H6.135a4.147 4.147 0 0 0-4.142 4.142V6H0v3h2v9.938h3V9h2.021l.592-3H5V3.591A.6.6 0 0 1 5.592 3h.543Z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                <span class="sr-only">Facebook page</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Scroll Top -->
+    <a
+      href="#"
+      id="scroll-top"
+      class="scroll-top d-flex align-items-center justify-content-center"
+      ><i class="bi bi-arrow-up-short"></i
+    ></a>
+
+    <!-- Vendor JS Files -->
+    <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+    <!-- PHP Email Form Validation -->
+    <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+
+    <!-- AOS Animation JS -->
+    <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+
+    <!-- Glightbox JS -->
+    <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+
+    <!-- PureCounter Vanilla JS -->
+    <script src="{% static 'assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
+
+    <!-- Swiper JS -->
+    <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+
+    <!-- Main JS File -->
+    <script src="{% static 'assets/js/main.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+  </body>
+</html>

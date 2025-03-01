@@ -1,0 +1,168 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Mobile Metas -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- Site Metas -->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link
+      rel="shortcut icon"
+      href="{% static '/img/prime/prime.png' %}"
+      type=""
+    />
+
+    <title>{% block head_title %}kiarutara school {% endblock %}</title>
+    {% block extra_head %} {% endblock %}
+
+    <!-- fonts style -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- flowbite -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css"
+      rel="stylesheet"
+    />
+    <!-- tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+          font-family: Arial, sans-serif;
+          background-color: #f4f4f4;
+          margin: 0;
+          padding: 0;
+      }
+
+      .audio-player {
+          position: fixed;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          background-color: #fff;
+          border-top: 1px solid #e2e8f0;
+          box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+          padding: 10px 20px;
+          z-index: 50;
+      }
+
+      .audio-controls button {
+          background-color: transparent;
+          border: none;
+          cursor: pointer;
+          padding: 10px;
+          margin: 0 5px;
+      }
+
+      .audio-controls button:hover {
+          background-color: #f1f1f1;
+          border-radius: 50%;
+      }
+
+      .audio-controls svg {
+          fill: #4a5568;
+          width: 24px;
+          height: 24px;
+      }
+
+      .audio-progress {
+          display: flex;
+          align-items: center;
+          margin: 10px 0;
+      }
+
+      .audio-progress span {
+          font-size: 12px;
+          color: #a0aec0;
+      }
+
+      .audio-progress-bar {
+          flex-grow: 1;
+          height: 5px;
+          background-color: #e2e8f0;
+          border-radius: 2.5px;
+          margin: 0 10px;
+          position: relative;
+      }
+
+      .audio-progress-bar div {
+          height: 100%;
+          background-color: #4299e1;
+          border-radius: 2.5px;
+          width: 0;
+      }
+
+      .song-list {
+          margin-bottom: 60px;
+          padding: 20px;
+      }
+
+      .song-item {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 10px;
+          margin: 5px 0;
+          background-color: #fff;
+          border: 1px solid #e2e8f0;
+          border-radius: 5px;
+      }
+
+      .song-item:hover {
+          background-color: #edf2f7;
+      }
+
+      .song-title {
+          font-size: 16px;
+          color: #2d3748;
+      }
+
+      .song-artist {
+          font-size: 14px;
+          color: #718096;
+      }
+
+      .song-actions button {
+          background-color: transparent;
+          border: none;
+          cursor: pointer;
+          padding: 5px;
+          margin: 0 5px;
+      }
+
+      .song-actions button:hover {
+          background-color: #f1f1f1;
+          border-radius: 50%;
+      }
+
+      .song-actions svg {
+          fill: #4a5568;
+          width: 20px;
+          height: 20px;
+      }
+  </style>
+  </head>
+
+  <body>
+    <div>
+      {% block content %} {% endblock content %}
+
+     
+
+      {% include "scripts.html" %}
+    </div>
+
+    <!-- end client section -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,501 @@
+{% extends "prime-base.html" %} {% load static %} {% block content %}
+<section>
+  <div class="flex h-screen lg:flex-row flex-col">
+    <div
+      class="lg:w-1/2 py-10 w-full text-white flex items-center justify-center bg-slate-900"
+    >
+      <div class="lg:w-[50%] px-6 lg:px-0">
+        <h2
+          class="text-left lg:text-4xl flex text-3xl gap-2 font-bold"
+          style="
+            font-weight: 700;
+            margin: 20px 0;
+            font-family: Fredoka, sans-serif;
+            text-align: left;
+          "
+        >
+          <span>
+            <svg xmlns="http://www.w3.org/2000/svg" class='lg:h-10 lg:w-10 h-6 w-6 lg:mt-0 mt-2 ' viewBox="0 0 24 24"><path fill="currentColor" d="m1 6l1.5 1.5L1 9l1.5 1.5L1 12l1.5 1.5L1 15h2a3 3 0 0 0 3 3a3 3 0 0 0 3-3h6a3 3 0 0 0 3 3a3 3 0 0 0 3-3h2V8c0-1.11-.89-2-2-2zm3 1.5h2.5V10H4zm4 0h4V10H8zm5.5 0h4V10h-4zm5.5 0h2.5V13L19 11zm-13 6A1.5 1.5 0 0 1 7.5 15A1.5 1.5 0 0 1 6 16.5A1.5 1.5 0 0 1 4.5 15A1.5 1.5 0 0 1 6 13.5m12 0a1.5 1.5 0 0 1 1.5 1.5a1.5 1.5 0 0 1-1.5 1.5a1.5 1.5 0 0 1-1.5-1.5a1.5 1.5 0 0 1 1.5-1.5"/></svg>
+          </span>
+          <p>
+            Register Vehicle 
+          </p>
+        </h2>
+        <p class="text-gray-500 text-sm my-2 lg:my-2">
+          It takes a few seconds to enjoy music
+        </p>
+        {% if messages %} {% for message in messages %}        
+        <div
+          id="alert-2"
+          class="flex items-center p-4 mb-4 text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+          role="alert"
+        >
+          <svg
+            class="flex-shrink-0 w-4 h-4"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+          >
+            <path
+              d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
+            />
+          </svg>
+          <span class="sr-only">Info</span>
+          <div class="ms-3 text-sm font-medium">
+            Alert: 
+            {{ message }}
+          </div>
+          <button
+            type="button"
+            class="ms-auto -mx-1.5 -my-1.5 bg-red-50 text-red-500 rounded-lg focus:ring-2 focus:ring-red-400 p-1.5 hover:bg-red-200 inline-flex items-center justify-center h-8 w-8 dark:bg-gray-800 dark:text-red-400 dark:hover:bg-gray-700"
+            data-dismiss-target="#alert-2"
+            aria-label="Close"
+          >
+            <span class="sr-only">Close</span>
+            <svg
+              class="w-3 h-3"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 14 14"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+              />
+            </svg>
+          </button>
+        </div>
+        {% endfor %} {% endif %}
+
+        <form class="w-full" method="post">
+          <!-- Email -->
+          {% csrf_token %}
+          <div>
+            <label
+              for="email-address-icon"
+              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              >Your Email*</label
+            >
+            <div class="relative w-full">
+              <div
+                class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none"
+              >
+                <svg
+                  class="w-4 h-4 text-gray-500 dark:text-gray-400"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  viewBox="0 0 20 16"
+                >
+                  <path
+                    d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z"
+                  />
+                  <path
+                    d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z"
+                  />
+                </svg>
+              </div>
+              <input
+                type="text"
+                id="email-address-icon"
+                name="email"
+                class="bg-gray-50 w-full border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-rose-500 focus:border-rose-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-rose-500 dark:focus:border-rose-500"
+                placeholder="name@gmail.com"
+              />
+            </div>
+          </div>
+          <!-- Names -->
+          <div class="my-3">
+            <label
+              for="name-icon"
+              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              >Full Name*</label
+            >
+            <div class="relative w-full">
+              <div
+                class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none"
+              >
+                <!-- class="w-4 h-4 text-gray-500 dark:text-gray-400" -->
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-5 h-5 text-gray-500 dark:text-gray-400"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    d="M12 20a7.97 7.97 0 0 1-5.002-1.756l.002.001v-.683c0-1.794 1.492-3.25 3.333-3.25h3.334c1.84 0 3.333 1.456 3.333 3.25v.683A7.97 7.97 0 0 1 12 20M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10c0 5.5-4.44 9.963-9.932 10h-.138C6.438 21.962 2 17.5 2 12m10-5c-1.84 0-3.333 1.455-3.333 3.25S10.159 13.5 12 13.5c1.84 0 3.333-1.455 3.333-3.25S13.841 7 12 7"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </div>
+              <input
+                type="text"
+                id="name-icon"
+                name="username"
+                class="bg-gray-50 w-full border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-rose-500 focus:border-rose-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-rose-500 dark:focus:border-rose-500"
+                placeholder="Your name"
+              />
+            </div>
+          </div>
+          <!-- phone number -->
+          <div class="my-3">
+            <label
+              for="phone"
+              name="phone_number"
+              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              >Phone Number*</label
+            >
+            <div class="relative w-full">
+              <div
+                class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-5 h-5 text-gray-500 dark:text-gray-400"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    d="m10.687 6.48l-.65-1.164c-.884-1.585-3.106-1.772-4.5-.379c-.836.837-1.487 1.863-1.53 2.996c-.056 1.47.217 3.728 1.83 6.173l4.278-4.278c.922-.923 1.157-2.3.572-3.349m3.485 7.405l-4.278 4.279c2.445 1.612 4.704 1.885 6.173 1.83c1.133-.043 2.159-.695 2.996-1.532c1.393-1.393 1.206-3.615-.38-4.5l-1.162-.649c-1.05-.585-2.426-.35-3.349.572"
+                    clip-rule="evenodd"
+                  />
+                  <path
+                    fill="currentColor"
+                    d="M11.025 12.976c-2.03-2.029-.91-3.148-.91-3.148l-4.279 4.278a14.247 14.247 0 0 0 1.832 2.227a14.167 14.167 0 0 0 2.226 1.83l4.278-4.277s-1.119 1.119-3.148-.91"
+                    opacity="0.5"
+                  />
+                </svg>
+              </div>
+              <input
+                type="text"
+                id="phone-icon"
+                name="phone_number"
+                class="bg-gray-50 w-full border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-rose-500 focus:border-rose-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-rose-500 dark:focus:border-rose-500"
+                placeholder="+254721 **** **"
+              />
+            </div>
+          </div>
+          <!-- car registration-->
+          <div class="my-3">
+            <label
+              for="phone"
+              name="phone_number"
+              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              >Number Plate*</label
+            >
+            <div class="relative w-full">
+              <div
+                class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none"
+              >
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-500 dark:text-gray-400" viewBox="0 0 24 24"><path fill="currentColor" d="M22 8.54V6c0-1.1-.9-2-2-2H4c-1.1 0-1.99.89-1.99 2v2.54c0 .69.33 1.37.94 1.69C3.58 10.58 4 11.24 4 12s-.43 1.43-1.06 1.76c-.6.33-.94 1.01-.94 1.7V18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2v-2.54c0-.69-.34-1.37-.94-1.7c-.63-.34-1.06-1-1.06-1.76s.43-1.42 1.06-1.76c.6-.33.94-1.01.94-1.7m-9 8.96h-2v-2h2zm0-4.5h-2v-2h2zm0-4.5h-2v-2h2z"/></svg>
+                
+              </div>
+              <input
+                type="text"
+                id="phone-icon"
+                name="car_registration"
+                class="bg-gray-50 w-full border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-rose-500 focus:border-rose-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-rose-500 dark:focus:border-rose-500"
+                placeholder="K** **A"
+              />
+            </div>
+          </div>
+
+          <!-- Player registration-->
+          <div class="my-3">
+            <label
+              for="player-no"
+              name="player-no"
+              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              >Player Number</label
+            >
+            <div class="relative w-full">
+              <div
+                class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none"
+              >
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-500 dark:text-gray-400" viewBox="0 0 48 48"><defs><mask id="ipSRecordPlayer0"><g fill="none"><rect width="38" height="32" x="5" y="8" stroke="#fff" stroke-width="4" rx="2"/><path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M13 8v32"/><circle cx="28" cy="24" r="9" fill="#fff" stroke="#fff" stroke-width="4"/><circle cx="28" cy="24" r="3" fill="#000"/><path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M5 16h8m-8 8h8m-8 8h8"/></g></mask></defs><path fill="currentColor" d="M0 0h48v48H0z" mask="url(#ipSRecordPlayer0)"/></svg>
+                
+              </div>
+              <input
+                type="text"
+                id="phone-icon"
+                name="player-no"
+                class="bg-gray-50 w-full border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-rose-500 focus:border-rose-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-rose-500 dark:focus:border-rose-500"
+                placeholder="Your app number"
+              />
+            </div>
+          </div>
+
+          <!-- Password 1 -->
+          <div class="my-3">
+            <label
+              for="phone"
+              name="password1"
+              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              >Enter Password*</label
+            >
+            <div class="relative w-full">
+              <div
+                class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-5 h-5 text-gray-500 dark:text-gray-400"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M2 16c0-2.828 0-4.243.879-5.121C3.757 10 5.172 10 8 10h8c2.828 0 4.243 0 5.121.879C22 11.757 22 13.172 22 16c0 2.828 0 4.243-.879 5.121C20.243 22 18.828 22 16 22H8c-2.828 0-4.243 0-5.121-.879C2 20.243 2 18.828 2 16"
+                    opacity="0.5"
+                  />
+                  <path
+                    fill="currentColor"
+                    d="M8 17a1 1 0 1 0 0-2a1 1 0 0 0 0 2m4 0a1 1 0 1 0 0-2a1 1 0 0 0 0 2m5-1a1 1 0 1 1-2 0a1 1 0 0 1 2 0M6.75 8a5.25 5.25 0 0 1 10.5 0v2.004c.567.005 1.064.018 1.5.05V8a6.75 6.75 0 0 0-13.5 0v2.055a23.57 23.57 0 0 1 1.5-.051z"
+                  />
+                </svg>
+              </div>
+              <input
+                type="password"
+                id="phone-icon"
+                name="password1"
+                class="bg-gray-50 w-full border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-rose-500 focus:border-rose-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-rose-500 dark:focus:border-rose-500"
+                placeholder="6 digits or more"
+              />
+            </div>
+          </div>
+          <!-- Password 2 -->
+          <div class="my-3">
+            <label
+              for="phone"
+              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              >Confirm Password*</label
+            >
+            <div class="relative w-full">
+              <div
+                class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-5 h-5 text-gray-500 dark:text-gray-400"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M2 16c0-2.828 0-4.243.879-5.121C3.757 10 5.172 10 8 10h8c2.828 0 4.243 0 5.121.879C22 11.757 22 13.172 22 16c0 2.828 0 4.243-.879 5.121C20.243 22 18.828 22 16 22H8c-2.828 0-4.243 0-5.121-.879C2 20.243 2 18.828 2 16"
+                    opacity="0.5"
+                  />
+                  <path
+                    fill="currentColor"
+                    d="M8 17a1 1 0 1 0 0-2a1 1 0 0 0 0 2m4 0a1 1 0 1 0 0-2a1 1 0 0 0 0 2m5-1a1 1 0 1 1-2 0a1 1 0 0 1 2 0M6.75 8a5.25 5.25 0 0 1 10.5 0v2.004c.567.005 1.064.018 1.5.05V8a6.75 6.75 0 0 0-13.5 0v2.055a23.57 23.57 0 0 1 1.5-.051z"
+                  />
+                </svg>
+              </div>
+              <input
+                type="password"
+                id="phone-icon"
+                name="password2"
+                class="bg-gray-50 w-full border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-rose-500 focus:border-rose-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-rose-500 dark:focus:border-rose-500"
+                placeholder="6 digits or more"
+              />
+            </div>
+          </div>
+          <button
+            type="submit"
+            class="text-white my-4 w-full bg-rose-700 hover:bg-rose-800 focus:ring-4 focus:outline-none focus:ring-rose-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-rose-600 dark:hover:bg-rose-700 dark:focus:ring-rose-800"
+          >
+            Register new account
+          </button>
+        </form>
+        <p class="my-4 text-sm">
+          Already have an account?
+          <a href="/login" class="text-rose-600">Login</a>
+        </p>
+      </div>
+    </div>
+    <div
+      class="lg:w-1/2 w-full bg-rose-600 flex flex-col items-center justify-between lg:py-20"
+    >
+      <div
+        class="text-3xl text-white lg:text-6xl"
+        style="
+          font-weight: 700;
+          margin: 20px 0;
+          font-family: Fredoka, sans-serif;
+        "
+      >
+        Tazama
+      </div>
+
+      <div id="default-carousel" class="relative w-full" data-carousel="slide">
+        <!-- Carousel wrapper -->
+        <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+          <!-- Item 1 -->
+          <div
+            class="hidden text-center flex items-center justify-center duration-700 ease-in-out"
+            data-carousel-item
+          >
+            <div class="text-white text-2xl font-bold">Enjoy Music</div>
+          </div>
+          <!-- Item 2 -->
+          <div
+            class="hidden text-center flex items-center justify-center duration-700 ease-in-out"
+            data-carousel-item
+          >
+            <div class="text-white text-2xl font-bold">
+              Cast you favorite song
+            </div>
+          </div>
+          <!-- Item 3 -->
+          <div
+            class="hidden text-center flex items-center justify-center duration-700 ease-in-out"
+            data-carousel-item
+          >
+            <div class="text-white text-2xl font-bold">Data Privacy</div>
+          </div>
+          <!-- Item 4 -->
+          <div
+            class="hidden text-center flex items-center justify-center duration-700 ease-in-out"
+            data-carousel-item
+          >
+            <div class="text-white text-2xl font-bold">Scan to Connect</div>
+          </div>
+          <!-- Item 5 -->
+          <div
+            class="hidden text-center flex items-center justify-center duration-700 ease-in-out"
+            data-carousel-item
+          >
+            <div class="text-white text-2xl font-bold">Enjoy Tazama Today</div>
+          </div>
+        </div>
+        <!-- Slider indicators -->
+        <div
+          class="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse"
+        >
+          <button
+            type="button"
+            class="w-3 h-3 rounded-full"
+            aria-current="true"
+            aria-label="Slide 1"
+            data-carousel-slide-to="0"
+          ></button>
+          <button
+            type="button"
+            class="w-3 h-3 rounded-full"
+            aria-current="false"
+            aria-label="Slide 2"
+            data-carousel-slide-to="1"
+          ></button>
+          <button
+            type="button"
+            class="w-3 h-3 rounded-full"
+            aria-current="false"
+            aria-label="Slide 3"
+            data-carousel-slide-to="2"
+          ></button>
+          <button
+            type="button"
+            class="w-3 h-3 rounded-full"
+            aria-current="false"
+            aria-label="Slide 4"
+            data-carousel-slide-to="3"
+          ></button>
+          <button
+            type="button"
+            class="w-3 h-3 rounded-full"
+            aria-current="false"
+            aria-label="Slide 5"
+            data-carousel-slide-to="4"
+          ></button>
+        </div>
+        <!-- Slider controls -->
+        <button
+          type="button"
+          class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+          data-carousel-prev
+        >
+          <span
+            class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-rose-400/30 group-hover:bg-white/50 dark:group-hover:bg-gray-400/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none"
+          >
+            <svg
+              class="w-4 h-4 text-white dark:text-rose-800 rtl:rotate-180"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 6 10"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5 1 1 5l4 4"
+              />
+            </svg>
+            <span class="sr-only">Previous</span>
+          </span>
+        </button>
+        <button
+          type="button"
+          class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+          data-carousel-next
+        >
+          <span
+            class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-rose-400/30 group-hover:bg-white/50 dark:group-hover:bg-gray-400/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none"
+          >
+            <svg
+              class="w-4 h-4 text-white dark:text-rose-800 rtl:rotate-180"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 6 10"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="m1 9 4-4-4-4"
+              />
+            </svg>
+            <span class="sr-only">Next</span>
+          </span>
+        </button>
+      </div>
+
+      <div class="flex justify-start flex-col justify-between">
+        <div class="flex -space-x-2 rtl:space-x-reverse">
+          <img
+            class="lg:w-11 lg:h-11 h-7 w-7 border-2 border-white rounded-full object-cover dark:border-gray-800"
+            src="{% static '/img/prime/gynecology.jpg' %}"
+            alt=""
+          />
+          <img
+            class="lg:w-11 lg:h-11 h-7 w-7 border-2 border-white rounded-full object-cover dark:border-gray-800"
+            src="{% static '/img/prime/expecting.svg' %}"
+            alt=""
+          />
+          <img
+            class="lg:w-11 lg:h-11 h-7 w-7 border-2 border-white rounded-full object-cover dark:border-gray-800"
+            src="{% static '/img/prime/cardiology.jpg' %}"
+            alt=""
+          />
+          <img
+            class="lg:w-11 lg:h-11 h-7 w-7 border-2 border-white rounded-full object-cover dark:border-gray-800"
+            src="{% static '/img/login.svg' %}"
+            alt=""
+          />
+          <div class="w-5"></div>
+
+          <div class="lg:mx-10 pt-2 text-white">+10k Users Enjoying Tazama</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock content %}
