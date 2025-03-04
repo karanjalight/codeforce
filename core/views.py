@@ -28,6 +28,11 @@ def landing_view(request):
    
     return render(request, 'prime/index.html') 
 
+def landing_staff_view(request):  
+    
+   
+    return render(request, 'prime/staff.html') 
+
 @login_required
 def dashboard_view(request):    
     user = request.user
@@ -211,6 +216,28 @@ def slider_intro_view(request):
 
 def dashboard_view(request):
     return render(request, "portal/dashboard.html")
+
+def pay_per_hire_view(request):
+    return render(request, "portal/pay-per-hire.html")
+
+def pay_per_hire_payment_view(request):
+    return render(request, "portal/pay-per-hire-payment.html")
+
+
+
+def pay_on_demand_view(request):
+    return render(request, "portal/pay-on-demand.html")
+
+def pay_on_demand_payment_view(request):
+    return render(request, "portal/pay-on-demand-payment.html")
+
+def pay_pro_view(request):
+    return render(request, "portal/pay-pro.html")
+
+def pay_pro_payment_view(request):
+    return render(request, "portal/pay-pro-payment.html")
+
+
 
 def teacher_view(request):
     return render(request, "portal/teachers.html")

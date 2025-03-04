@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>CodeForce</title>
+    <title>Dashboard - CODEFORCE</title>
     <meta
       name="description"
       content="School portal, fee management, online fee payment, Mpesa to school fees"
@@ -66,6 +66,7 @@
 
     <!-- Main CSS File -->
     <link href="{% static 'assets/css/main.css' %}" rel="stylesheet" />
+    <link href="{% static 'assets/css/stepper.css' %}" rel="stylesheet" />
 
     <link
       href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css"
@@ -81,7 +82,7 @@
         <a href="/" class="logo d-flex align-items-center me-auto">
           <!-- Uncomment the line below if you also wish to use an image logo -->
           <!-- <img src="assets/img/logo.png" alt=""> -->
-          <h1 class="sitename text-sm">CodeForce</h1>
+          <h1 class="sitename text-sm">CODE FORCE</h1>
         </a>
 
         <nav id="navmenu" class="navmenu">
@@ -89,106 +90,120 @@
             <li>
               <a href="/">Home<br /></a>
             </li>
-
-            <li><a href="/school-fees">Pricing</a></li>
+            <!-- <li><a href="about.html">About</a></li> -->
+            <!-- <li><a href="courses.html">Courses</a></li> -->
+            <!-- <li><a href="trainers.html">Trainers</a></li> -->
+            <!-- <li><a href="events.html">Events</a></li> -->
+            <li><a href="/dashboard" class="active">Dashboard</a></li>
+            <li><a href="/pricing">Pricing</a></li>
             <li><a href="/contacts">Contact Us</a></li>
           </ul>
           <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>
 
-        <a
-          class="btn-getstarted"
-          style="background-color: navy !important"
-          href="/home"
-          >login</a
-        >
+        <a class="btn-getstarted" href="/logout">Log out</a>
       </div>
     </header>
-
-    <main class="main">
-      <!-- Page Title -->
-      <div class="page-title" data-aos="fade">
-        <nav class="breadcrumbs" style="background-color: rgb(35 56 118)">
-          <div class="container" style="background-color: rgb(35 56 118)">
-            <ol>
-              <li><a href="/">Home</a></li>
-              <li class="current"></li>
-            </ol>
-          </div>
-        </nav>
-      </div>
-      <!-- End Page Title -->
-
-      <br />
-
-      <!-- Pricing Section -->
-      <section id="pricing" class="pricing section">
+    <div class="page-title" data-aos="fade">
+      <div class="heading">
         <div class="container">
-          <div class="row gy-3">
-            <div class="col-xl-63 col-lg-3"></div>
-            <div
-              class="col-xl-6 col-lg-6"
-              data-aos="fade-up"
-              data-aos-delay="100"
-            >
-              <div
-                class="pricing-item featured"
-                style="border: 1px solid orange"
-              >
-                <h3>Company Portal</h3>
-                <h4 class="flex items-center justify-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="72"
-                    height="72"
-                    viewBox="0 0 256 256"
-                  >
-                    <path
-                      fill="currentColor"
-                      d="m225.27 60.21l-96-32a4 4 0 0 0-2.54 0l-96 32A4 4 0 0 0 28 64v80a4 4 0 0 0 8 0V69.55l43.88 14.63a60 60 0 0 0 24.54 91c-20.86 5.74-39 19.13-51.77 38.65a4 4 0 0 0 6.7 4.36C75.17 193.92 100.2 180 128 180s52.83 13.92 68.65 38.18a4 4 0 0 0 6.7-4.36c-12.72-19.52-30.91-32.91-51.77-38.65a60 60 0 0 0 24.54-91l49.15-16.39a4 4 0 0 0 0-7.58ZM180 120a52 52 0 1 1-92.07-33.14l38.8 12.93a3.95 3.95 0 0 0 2.54 0l38.8-12.93A51.85 51.85 0 0 1 180 120m-52-28.22L44.65 64L128 36.22L211.35 64Z"
-                    />
-                  </svg>
-                </h4>
+          <div class="row d-flex justify-content-center text-center">
+            <div class="col-lg-8">
+              <h1>Pay On Demand</h1>
+              <p class="mb-0">
                 <ul>
-                  <li>Hire Tech Talent</li>
-                  <li>Test Products</li>
-                  <li>Research & Development</li>
-                  {% comment %}
-                  <li>Nulla at volutpat dola</li>
-                  <li class="na">Pharetra massa</li>
-                  <li class="na">Massa ultricies mi</li>
-                  {% endcomment %}
-                  <div class="btn-wrap">
-                    <a href="/accounts/register" class="btn-buy"
-                      >Create Account</a
-                    >
-                  </div>
-                </ul>
-                <div class="btn-wrap">
-                  <a href="/login" class="btn-buy">Login</a>
-                </div>
-              </div>
+                    <li>5 - 10 Hires</li>
+                    <li>One-time payment</li>
+                    <li>Perfect for occasional hiring</li>
+                    <li>Best for One-time bulk hiring</li>
+                    {% comment %}
+                    <li class="na">Massa ultricies mi</li>
+                    {% endcomment %}
+                  </ul>
+              </p>
             </div>
-            <div class="col-xl-63 col-lg-3"></div>
-            <!-- End Pricing Item -->
-
-            <!-- End Pricing Item -->
-
-            <!-- End Pricing Item -->
           </div>
         </div>
-      </section>
+      </div>
+      <nav class="breadcrumbs">
+        <div class="container">
+          <ol>
+            <li><a href="/">Home</a></li>
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li class="current">Pay Per Hire</li>
+          </ol>
+        </div>
+      </nav>
+    </div>
 
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
+    <br />
+    <br />
+    <br />
+    <main class="main container">
+      <div class="row ">
+        <div class="col-lg-4 col-md-6">
+            <div class="stepper">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-text">Job Position</div>
+                    <div class="step-line"></div>
+                </div>
+                <div class="step">
+                    <div class="step-number"  style='backround-color:gray !important'>2</div>
+                    <div class="step-text" >Payment</div>
+                    <div class="step-line"  style='color:gray'></div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-text" style='color:gray'>Success</div>
+                </div>
+            </div>
+        </div>
+        
+        
+        <div class='col-lg-6 col-md-6'>
+            <section id="pricing" class="pricing section">
+                <div class="container">
+                  <div class="row gy-3">
+                    <div class="col-xl-12 col-lg-12" data-aos="fade-up" data-aos-delay="100">
+                      <div class="pricing-item featured">
+                        <h3>Pay Now</h3>
+                        <h4><sup>USD</sup> 51</span></h4>
+                        <h4><sup>Ksh</sup> 8,400</span></h4>
+                        <ul>
+                          <li>Enter Phone Number</li>
+                          <li>Mpesa will prompt your phone number</li>
+                          <li>Enter Pin</li>
+                          <li>Pay easily</li>
+                          {% comment %}
+                          <li class="na">Massa ultricies mi</li>
+                          {% endcomment %}
+                        </ul>
+                        <div class="btn-wrap">
+                          <a href="/pay-success" class="btn-buy">Hire Now</a>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </section>  
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
 
-      <!-- /Pricing Section -->
+      </div>
+      
+ 
     </main>
-    <div>{% include "components/footer.html" %}</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <div></div>
+
+    {% include "components/footer.html" %}
 
     <!-- Scroll Top -->
     <a
@@ -197,6 +212,11 @@
       class="scroll-top d-flex align-items-center justify-content-center"
       ><i class="bi bi-arrow-up-short"></i
     ></a>
+
+    <!-- Preloader -->
+    {% comment %}
+    <div id="preloader"></div>
+    {% endcomment %}
 
     <!-- Vendor JS Files -->
     <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
