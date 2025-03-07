@@ -34,17 +34,4 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     
     
 
-class Parent(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    user = models.ForeignKey(settings.AUTH_USER_MODEL,  related_name='parent_student', on_delete=models.CASCADE, null=True, blank=True)
-    name = models.CharField(max_length=150, null=True)
-    phone_number = models.CharField(max_length=15, null=True, verbose_name="Enter Phone Number")
-    is_active = models.BooleanField(default=True)
-    date_joined = models.DateTimeField(default=timezone.now)
-    student = models.ManyToManyField(Student, related_name='parentsstudents', blank=True)
-    
-    def __str__(self):
-        return self.name
-    
-    
 

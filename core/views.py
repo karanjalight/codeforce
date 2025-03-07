@@ -234,8 +234,49 @@ def pay_on_demand_payment_view(request):
 def pay_pro_view(request):
     return render(request, "portal/pay-pro.html")
 
+
+@login_required
 def  create_job_view(request):
+    if request.method == "POST":
+        print(request.POST)
+        title = request.POST.get("position_title")
+        expertise = request.POST.get("expertise")
+        employment_type = request.POST.get("employment_type")
+        experience_required = request.POST.get("experience")
+        salary_min = request.POST.get("salary_min")
+        salary_max = request.POST.get("salary_max")
+        description = request.POST.get("description")
+        qualifications = request.POST.get("qualifications")
+        benefits = request.POST.get("benefits")
+        
+        # Create and save the job
+        job = Job.objects.create(
+            user=request.user,
+            title=title,
+            expertise=expertise,
+            employment_type=employment_type,
+            experience_required=experience_required,
+            salary_min=salary_min,
+            salary_max=salary_max,
+            description=description,
+            qualifications=qualifications,
+            benefits=benefits,
+            is_draft=False,
+            is_published=True
+        )
+        
+        messages.success(request, "Job listing created successfully!")
+        
+        if "pay_on_demand" in request.POST:
+            return redirect("core:create_job_view")  # Redirect to the same page for adding another
+        
+        return redirect('/payment/jobs') 
     return render(request, "portal/create-job.html")
+
+
+
+def job_payment_view(request):
+    return render(request, "portal/jobs-payment.html")
 
 
 def pay_pro_payment_view(request):

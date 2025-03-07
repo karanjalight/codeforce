@@ -4,10 +4,10 @@ from django.utils.translation import gettext_lazy as _
 from .models import *
 
 # Register your models here.
-admin.site.site_header = "KIARUTARA SCHOOL"
-admin.site.site_title = "KIARUTARA SCHOOL"
-admin.site.index_title = "KIARUTARA SCHOOL"
-admin.site.welcome_sign = "Welcome to the KIARUTARA SCHOOL Admin Panel"
+admin.site.site_header = "CODEFORCE"
+admin.site.site_title = "CODEFORCE"
+admin.site.index_title = "CODEFORCE"
+admin.site.welcome_sign = "Welcome to the CODEFORCE Admin Panel"
 
 
 class UserAdmin(BaseUserAdmin):
@@ -32,13 +32,3 @@ class UserAdmin(BaseUserAdmin):
 
 admin.site.register(CustomUser, UserAdmin)
 
-
-class ParentAdmin(admin.ModelAdmin):
-    list_display = ('name', 'phone_number', 'is_active', 'date_joined')
-    search_fields = ('name', 'phone_number')
-    list_filter = ('is_active', 'date_joined')
-    filter_horizontal = ('student',)
-    ordering = ('-date_joined',)
-    readonly_fields = ('date_joined',)
-
-admin.site.register(Parent, ParentAdmin)

@@ -15,7 +15,7 @@ urlpatterns = [
     
     #  hires
     path('create-job/', create_job_view, name='create-job'),
-
+    path('payment/jobs/', job_payment_view, name='pay-per-hire-payment'),
     
     
     

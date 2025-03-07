@@ -12,108 +12,43 @@ from datetime import date
 
 
 
-
-class StudentClass(models.Model):
+class Job(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    name = models.CharField(max_length=50, blank=True, null=True)
-    timestamp = models.DateTimeField(default=timezone.now)
-    
-    def __str__(self):
-        return self.name
-    
-
-
-class Fee(models.Model):
-    FEE_TYPE_CHOICES = [
-        ('Day', 'Day'),
-        ('Boarding', 'Boarding'),
-    ]
-
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    student_class = models.CharField(max_length=50)
-    grade = models.ForeignKey(StudentClass, on_delete=models.CASCADE, null=True)
-    date_created = models.DateField()
-    type = models.CharField(max_length=10, choices=FEE_TYPE_CHOICES)
-    amount = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL,  related_name='jobsowner', on_delete=models.CASCADE)
+    title = models.CharField(max_length=255, null=True, blank=True)
+    expertise = models.CharField(max_length=100, null=True, blank=True)
+    employment_type = models.CharField(max_length=50, null=True, blank=True)
+    experience_required = models.PositiveIntegerField(null=True, blank=True)
+    salary_min = models.PositiveIntegerField(null=True, blank=True)
+    salary_max = models.PositiveIntegerField(null=True, blank=True)
+    description = models.TextField(null=True, blank=True)
+    qualifications = models.TextField(null=True, blank=True)
+    benefits = models.TextField(null=True, blank=True)
+    is_in_progress = models.BooleanField(default=False, null=True, blank=True)
+    is_draft = models.BooleanField(default=True, null=True, blank=True)
+    is_published = models.BooleanField(default=False, null=True, blank=True)
+    is_completed = models.BooleanField(default=False, null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
 
     def __str__(self):
-        return self.student_class
+        return self.title
 
-
-class Student(models.Model):
-    GENDER_CHOICES = [
-        ('M', 'Male'),
-        ('F', 'Female'),
-    ]
-    FEE_TYPE_CHOICES = [
-        ('Day', 'Day'),
-        ('Boarding', 'Boarding'),
-    ]
-
+class Candidate(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    name = models.CharField(max_length=255)
-    admission_number = models.CharField(max_length=255)
-    gender = models.CharField(max_length=1, choices=GENDER_CHOICES)
-    dob = models.DateField( null=True, blank=True)  # Date of Birth
-    npi = models.CharField(max_length=20, unique=True)  # National Personal Identifier
-    students_class = models.ForeignKey('Fee', on_delete=models.CASCADE)
-    is_active = models.BooleanField(default=True)
-    date_joined = models.DateTimeField(default=timezone.now)
-    parents = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='parents', blank=True)
-    payments = models.ManyToManyField('Payment', related_name='students', blank=True)
-    about_student = models.CharField(max_length=255, null=True)
-    profile_pic = models.ImageField(upload_to='profile_pics/', null=True, blank=True)
-    type = models.CharField(max_length=10, choices=FEE_TYPE_CHOICES)
-
+    user = models.ForeignKey(settings.AUTH_USER_MODEL,  related_name='parent_paying', on_delete=models.CASCADE)
+    job = models.ForeignKey(Job, on_delete=models.CASCADE, related_name="candidates")
+    applied_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
 
     def __str__(self):
-        return self.name
-    
-    def get_age(self):
-        today = date.today()
-        return today.year - self.dob.year - ((today.month, today.day) < (self.dob.month, self.dob.day))
-    
-    
-    
+        return f"{self.user.name} - {self.job.title}"
 
-
-class AmountPaid(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    ref_code = models.CharField(max_length=255, null=True, blank=True)
-    user = models.ForeignKey(settings.AUTH_USER_MODEL,  related_name='parent_paying_amount', on_delete=models.CASCADE, null=True, blank=True)
-    amount = models.DecimalField(max_digits=10, decimal_places=2)
-    date = models.DateTimeField(default=timezone.now)
-
-    def __str__(self):
-        return f"{self.amount} on {self.user.username}"
-    
 class Payment(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    name = models.CharField(max_length=255)
-    user = models.ForeignKey(settings.AUTH_USER_MODEL,  related_name='parent_paying', on_delete=models.CASCADE)
-    student = models.ForeignKey(Student,  related_name='parent_paying' , on_delete=models.CASCADE)
-    term = models.ForeignKey('Term', on_delete=models.CASCADE)
-    amount = models.DecimalField(max_digits=10, decimal_places=2)
-    amount_paid = models.ManyToManyField(AmountPaid, related_name='amount_paid')
-    balance = models.DecimalField(max_digits=10, decimal_places=2)
-    service_fee = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
-    date_complete = models.DateTimeField(null=True, blank=True)
-    date_created = models.DateTimeField(default=timezone.now)
-    is_active = models.BooleanField(default=False)
+    job = models.OneToOneField(Job, on_delete=models.CASCADE, related_name="payment")
+    amount = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
+    paid_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+    status = models.CharField(max_length=20, choices=[("pending", "Pending"), ("completed", "Completed")], default="pending", null=True, blank=True)
 
     def __str__(self):
-        return self.name
-    
-class Term(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    name = models.CharField(max_length=255)
-    year = models.PositiveIntegerField()
-    start_date = models.DateField()
-    end_date = models.DateField()
-    fee_deadline = models.DateField()
-    fee_amount = models.ForeignKey('Fee', on_delete=models.CASCADE)
-    is_active = models.BooleanField(default=True)
-
-    def __str__(self):
-        return f"{self.name} {self.year}"
+        return f"Payment for {self.job.title} - {self.status}"
     
