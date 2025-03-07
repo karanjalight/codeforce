@@ -71,6 +71,79 @@
       href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css"
       rel="stylesheet"
     />
+    <style>
+      .banner-section {
+        background: url("https://static.vecteezy.com/system/resources/previews/009/750/414/non_2x/hi-tech-digital-circuit-board-futuristic-ai-pad-and-electrical-lines-connected-on-blue-lighting-background-vector.jpg") 
+          no-repeat center center;
+        background-size: cover;
+        background-attachment: fixed; /* Fix background scaling */
+        padding: 80px 0;
+        color: white;
+        position: relative;
+        text-align: center;
+      }
+      
+      .banner-section h1 {
+        color: white;
+        font-size: 2.5rem;
+        font-weight: bold;
+      }
+      
+      .banner-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.3); /* Dark overlay for better contrast */
+      }
+      
+      .button-group {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+        margin-top: 20px;
+        z-index: 1;
+        position: relative;
+      }
+      
+      .btn-primary, .btn-secondary {
+        display: inline-block;
+        padding: 14px 32px;
+        font-size: 16px;
+        font-weight: bold;
+        text-decoration: none;
+        border-radius: 30px;
+        color: #fff;
+        transition: background 0.3s ease, transform 0.2s ease;
+      }
+      
+      .btn-primary {
+        background-color: #007bff;
+        color: white;
+        border: 2px solid #007bff;
+      }
+      
+      .btn-primary:hover {
+        background-color: #0056b3;
+        transform: scale(1.05);
+      }
+      
+      .btn-secondary {
+        background-color: transparent;
+        color: #fff;
+        border: 2px solid #007bff;
+      }
+      
+      .btn-secondary:hover {
+        background-color: #007bff;
+        color: white;
+        transform: scale(1.05);
+      }
+      
+      
+    </style>
   </head>
 
   <body class="pricing-page">
@@ -81,21 +154,21 @@
         <a href="/" class="logo d-flex align-items-center me-auto">
           <!-- Uncomment the line below if you also wish to use an image logo -->
           <!-- <img src="assets/img/logo.png" alt=""> -->
-          <h1 class="sitename text-sm">CODE FORCE</h1>
+          <h1 class="sitename text-sm">CODEFORCE</h1>
         </a>
 
         <nav id="navmenu" class="navmenu">
           <ul>
-            <li>
-              <a href="/">Home<br /></a>
-            </li>
             <!-- <li><a href="about.html">About</a></li> -->
             <!-- <li><a href="courses.html">Courses</a></li> -->
             <!-- <li><a href="trainers.html">Trainers</a></li> -->
             <!-- <li><a href="events.html">Events</a></li> -->
             <li><a href="/dashboard" class="active">Dashboard</a></li>
-            <li><a href="/pricing">Pricing</a></li>
-            <li><a href="/contacts">Contact Us</a></li>
+            <li><a href="/pricing">Jobs</a></li>
+            <li><a href="/pricing">Candidates</a></li>
+            <li><a href="/pricing">Settings</a></li>
+            {% comment %} <li><a href="/pricing">Pricing</a></li> {% endcomment %}
+            {% comment %} <li><a href="/contacts">Contact Us</a></li> {% endcomment %}
           </ul>
           <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>
@@ -106,8 +179,8 @@
 
     <main class="main">
       <!-- Page Title -->
-      <div class="page-title" data-aos="fade">
-        <div class="heading">
+      <div class="banner-section" data-aos="fade">
+        <div class="banner-heading position-relative">
           <div class="container">
             <div class="row d-flex justify-content-center text-center">
               <div class="col-lg-8">
@@ -117,24 +190,32 @@
             </div>
           </div>
         </div>
+        <div class="button-group">
+          <a href="/create-job" class="btn-primary">Hire Now</a>
+          <a href="/jobs-list" class="btn-secondary">Submit Project</a>
+        </div>
+        
+      </div>
+
+      <div class="page-title" data-aos="fade">
         <nav class="breadcrumbs">
           <div class="container">
             <ol>
-              <li><a href="/">Home</a></li>
+              {% comment %} <li><a href="/">Home</a></li> {% endcomment %}
               <li class="current">Dashboard</li>
             </ol>
           </div>
         </nav>
       </div>
+      {% include "components/dashboard-cards.html" %}
+
       <!-- End Page Title -->
       <!-- Courses Section -->
-      <section id="courses" class="courses section">
+      <section   id="courses" class="courses section">
         <div class="container">
-          <h3>Get Started </h3>
-          {% include "components/pricing-dashboard.html" %} 
-
           <br />
-          <h5>Custom Solutions</h5>
+          <h4> Custom Solutions </h4>
+          <br>
           <div class="row">
             <div
               class="col-lg-4 col-md-6 d-flex align-items-stretch"
@@ -152,7 +233,6 @@
                     class="d-flex justify-content-between align-items-center"
                   >
                     <p>Project</p>
-                    
                   </div>
 
                   <h3><a href="course-details.html">Project Review</a></h3>
@@ -190,12 +270,12 @@
                     class="d-flex justify-content-between align-items-center"
                   >
                     <p>Testing</p>
-                    
                   </div>
 
                   <h3><a href="course-details.html">Product Testing</a></h3>
                   <p class="description">
-                    Flexible pricing options based on testing requirements and duration.
+                    Flexible pricing options based on testing requirements and
+                    duration.
                   </p>
                   <div
                     class="trainer d-flex justify-content-between align-items-center"
@@ -227,12 +307,12 @@
                     class="d-flex justify-content-between align-items-center"
                   >
                     <p>Research</p>
-                    
                   </div>
 
                   <h3><a href="course-details.html">Project Research</a></h3>
                   <p class="description">
-                    Tailored pricing for research projects based on scope and resources needed.
+                    Tailored pricing for research projects based on scope and
+                    resources needed.
                   </p>
                   <div
                     class="trainer d-flex justify-content-between align-items-center"

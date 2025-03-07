@@ -13,7 +13,12 @@ urlpatterns = [
     path('dashboard/', dashboard_view, name='landing'),
     path('pricing/', fees_view, name='events'),
     
-    # pay hires
+    #  hires
+    path('create-job/', create_job_view, name='create-job'),
+
+    
+    
+    
     path('pay-per-hire/', pay_per_hire_view, name='landing'),
     path('payment/pay-per-hire/', pay_per_hire_payment_view, name='pay-per-hire-payment'),
     

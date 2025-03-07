@@ -234,6 +234,10 @@ def pay_on_demand_payment_view(request):
 def pay_pro_view(request):
     return render(request, "portal/pay-pro.html")
 
+def  create_job_view(request):
+    return render(request, "portal/create-job.html")
+
+
 def pay_pro_payment_view(request):
     return render(request, "portal/pay-pro-payment.html")
 

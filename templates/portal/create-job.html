@@ -1,0 +1,369 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Dashboard - CODEFORCE</title>
+    <meta
+      name="description"
+      content="School portal, fee management, online fee payment, Mpesa to school fees"
+    />
+    <meta
+      name="keywords"
+      content="School portal, fee management, online fee payment, Mpesa to school fees"
+    />
+
+    <!-- Favicons -->
+    <link
+      href="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/education-icon%2C-book-icon-logo-school-logo-design-template-2f5700bab7fe195a2659cf45edffcb5c_screen.jpg?ts=1659803081"
+      rel="icon"
+    />
+    <link
+      href="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/education-icon%2C-book-icon-logo-school-logo-design-template-2f5700bab7fe195a2659cf45edffcb5c_screen.jpg?ts=1659803081"
+      rel="apple-touch-icon"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- assets/ CSS Files -->
+    <!-- Bootstrap CSS -->
+    <link
+      href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap Icons -->
+    <link
+      href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}"
+      rel="stylesheet"
+    />
+
+    <!-- AOS Animation CSS -->
+    <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet" />
+
+    <!-- Glightbox CSS -->
+    <link
+      href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}"
+      rel="stylesheet"
+    />
+
+    <!-- Swiper CSS -->
+    <link
+      href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}"
+      rel="stylesheet"
+    />
+
+    <!-- Main CSS File -->
+    <link href="{% static 'assets/css/main.css' %}" rel="stylesheet" />
+    <link href="{% static 'assets/css/stepper.css' %}" rel="stylesheet" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body class="pricing-page">
+    <header id="header" class="header d-flex align-items-center sticky-top">
+      <div
+        class="container-fluid container-xl position-relative d-flex align-items-center"
+      >
+        <a href="/" class="logo d-flex align-items-center me-auto">
+          <!-- Uncomment the line below if you also wish to use an image logo -->
+          <!-- <img src="assets/img/logo.png" alt=""> -->
+          <h1 class="sitename text-sm">CODEFORCE</h1>
+        </a>
+
+        <nav id="navmenu" class="navmenu">
+            <ul>
+              <li><a href="/dashboard" >Dashboard</a></li>
+              <li><a href="/pricing" class="active">Jobs</a></li>
+              <li><a href="/pricing">Candidates</a></li>
+              <li><a href="/pricing">Settings</a></li>
+              {% comment %} <li><a href="/pricing">Pricing</a></li> {% endcomment %}
+              {% comment %} <li><a href="/contacts">Contact Us</a></li> {% endcomment %}
+            </ul>
+            <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+          </nav>
+  
+
+        <a class="btn-getstarted" href="/logout">Log out</a>
+      </div>
+    </header>
+    <div class="page-title" data-aos="fade">
+      <div class="heading">
+        <div class="container">
+          <div class="row d-flex justify-content-center text-center">
+            <div class="col-lg-8">
+              <h1>Create Job Listing</h1>
+              <p class="mb-0">
+                Get up to 10 hires with priority access and matching. Unused hires roll over, making this ideal for regular hiring.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <nav class="breadcrumbs">
+        <div class="container">
+          <ol>
+            <li><a href="/">Dashboard</a></li>
+            <li><a href="/create-job">Create Job</a></li>
+            {% comment %} <li class="current">Pay on Demand</li> {% endcomment %}
+          </ol>
+        </div>
+      </nav>
+    </div>
+
+    <br />
+    <br />
+    <br />
+    <main class="main container">
+      <div class="row ">
+        <div class="col-lg-4 col-md-6">
+            <div class="stepper">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-text">Job Position</div>
+                    <div class="step-line"></div>
+                </div>
+                <div class="step">
+                    <div class="step-number"  style='backround-color:gray !important'>2</div>
+                    <div class="step-text" style='color:gray' >Payment</div>
+                    <div class="step-line"  style='color:gray'></div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-text" style='color:gray'>Success</div>
+                </div>
+            </div>
+        </div>
+        
+        
+        <div class='col-lg-8 col-md-6'>
+            <section id="pricing" class="pricing section">
+                <form id="job-form" method="POST" action="{% url 'core:submit_job' %}">
+                    {% csrf_token %}
+            
+                    <h3 class="mb-3">Hire  Position - 1</h3>
+                    <div class="border-top pt-4">
+                      <div class="mb-3">
+                        <label for="position-title" class="form-label"
+                          >Position Title</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="position-title"
+                          name="position_title"
+                          placeholder="Enter the position title"
+                          required
+                        />
+                      </div>
+            
+                      <div class="mb-3">
+                        <label for="expertise" class="form-label">Required Expertise</label>
+                        <select
+                          class="form-select"
+                          id="expertise"
+                          name="expertise"
+                          required
+                        >
+                          <option selected disabled>Select expertise area</option>
+                          <option value="frontend">Frontend Development</option>
+                          <option value="backend">Backend Development</option>
+                          <option value="fullstack">Full Stack Development</option>
+                          <option value="mobile">Mobile Development</option>
+                          <option value="devops">DevOps</option>
+                          <option value="data-science">Data Science</option>
+                          <option value="ml">Machine Learning</option>
+                          <option value="ai">Artificial Intelligence</option>
+                          <option value="cloud">Cloud Computing</option>
+                          <option value="security">Cybersecurity</option>
+                        </select>
+                      </div>
+            
+                      <div class="mb-3">
+                        <label for="employment-type" class="form-label"
+                          >Employment Type</label
+                        >
+                        <select
+                          class="form-select"
+                          id="employment-type"
+                          name="employment_type"
+                          required
+                        >
+                          <option selected disabled>Select employment type</option>
+                          <option value="full-time">Full-time</option>
+                          <option value="part-time">Part-time</option>
+                          <option value="contract">Contract</option>
+                          <option value="freelance">Freelance</option>
+                        </select>
+                      </div>
+            
+                      <div class="mb-3">
+                        <label for="experience" class="form-label"
+                          >Required Experience (years)</label
+                        >
+                        <input
+                          type="number"
+                          class="form-control"
+                          id="experience"
+                          name="experience"
+                          min="0"
+                          placeholder="Enter required years of experience"
+                          required
+                        />
+                      </div>
+            
+                      <div class="mb-3">
+                       
+            
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="mb-3">
+                            <label for="salary-min" class="form-label"
+                              >Minimum Salary</label
+                            >
+                            <input
+                              type="number"
+                              class="form-control"
+                              id="salary-min"
+                              name="salary_min"
+                              min="0"
+                              placeholder="Enter minimum salary"
+                              required
+                            />
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="mb-3">
+                            <label for="salary-max" class="form-label"
+                              >Maximum Salary</label
+                            >
+                            <input
+                              type="number"
+                              class="form-control"
+                              id="salary-max"
+                              name="salary_max"
+                              min="0"
+                              placeholder="Enter maximum salary"
+                              required
+                            />
+                          </div>
+                        </div>
+                      </div>
+            
+                      <div class="mb-3">
+                        <label for="description" class="form-label">Job Description</label>
+                        <textarea
+                          class="form-control"
+                          id="description"
+                          name="description"
+                          rows="4"
+                          placeholder="Describe the role, responsibilities, and requirements..."
+                          required
+                        ></textarea>
+                      </div>
+            
+                      <div class="mb-3">
+                        <label for="qualifications" class="form-label"
+                          >Required Qualifications</label
+                        >
+                        <textarea
+                          class="form-control"
+                          id="qualifications"
+                          name="qualifications"
+                          rows="4"
+                          placeholder="List required qualifications, skills, certifications, education..."
+                          required
+                        ></textarea>
+                      </div>
+            
+                      <div class="mb-3">
+                        <label for="benefits" class="form-label">Benefits & Perks</label>
+                        <textarea
+                          class="form-control"
+                          id="benefits"
+                          name="benefits"
+                          rows="4"
+                          placeholder="List benefits, perks, and company culture..."
+                          required
+                        ></textarea>
+                      </div>
+                    </div>
+            
+                    <a href='/payment/pay-pro/' class="d-grid mt-4">
+                        <p   class="btn btn-primary">Submit</p>
+                    </a>
+                    <a href='/pay-on-demand/' class="d-grid mt-4">
+                        <p   class="btn btn-secondary">Submit & Add Another</p>
+                      </a>
+                  </form>
+          
+            </section>  
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+
+      </div>
+      
+ 
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <div></div>
+
+    {% include "components/footer.html" %}
+
+    <!-- Scroll Top -->
+    <a
+      href="#"
+      id="scroll-top"
+      class="scroll-top d-flex align-items-center justify-content-center"
+      ><i class="bi bi-arrow-up-short"></i
+    ></a>
+
+    <!-- Preloader -->
+    {% comment %}
+    <div id="preloader"></div>
+    {% endcomment %}
+
+    <!-- Vendor JS Files -->
+    <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+    <!-- PHP Email Form Validation -->
+    <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+
+    <!-- AOS Animation JS -->
+    <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+
+    <!-- Glightbox JS -->
+    <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+
+    <!-- PureCounter Vanilla JS -->
+    <script src="{% static 'assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
+
+    <!-- Swiper JS -->
+    <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+
+    <!-- Main JS File -->
+    <script src="{% static 'assets/js/main.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+  </body>
+</html>
