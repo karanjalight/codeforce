@@ -135,16 +135,16 @@ def register_user_view(request):
             password1 = request.POST.get('password1')
             users = CustomUser.objects.all()
             # Email sending
-            html_message = render_to_string("emails/welcomeEmail.html",  {"name": name})
-            plain_message = strip_tags(html_message)
-            message = EmailMultiAlternatives(
-                subject='Welcome to Code Force',
-                body= plain_message,
-                from_email="CodeForce<settings.EMAIL_HOST_USER>",
-                to= [email]
-            )
-            message.attach_alternative(html_message, 'text/html')
-            message.send()
+            # html_message = render_to_string("emails/welcomeEmail.html",  {"name": name})
+            # plain_message = strip_tags(html_message)
+            # message = EmailMultiAlternatives(
+            #     subject='Welcome to Code Force',
+            #     body= plain_message,
+            #     from_email="CodeForce<settings.EMAIL_HOST_USER>",
+            #     to= [email]
+            # )
+            # message.attach_alternative(html_message, 'text/html')
+            # message.send()
             if password1:
                 user = CustomUser.objects.create(
                     username = name,

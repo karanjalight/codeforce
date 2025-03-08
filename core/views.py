@@ -215,6 +215,16 @@ def slider_intro_view(request):
 
 @login_required
 def dashboard_view(request):
+    user_jobs = Job.objects.filter(user=request.user)  # Filter jobs posted by the logged-in user
+    jobs_count = user_jobs.count()
+    candidates_count = Candidate.objects.filter(job__in=user_jobs).count()  # Count candidates for those jobs
+
+    context = {
+        "jobs_count": jobs_count,
+        "candidates_count": candidates_count,
+    }
+    
+    return render(request, "portal/dashboard.html", context)
     return render(request, "portal/dashboard.html")
 
 def pay_per_hire_view(request):
