@@ -213,7 +213,7 @@ def student_list_view(request):
 def slider_intro_view(request):
     return render(request, "intro-slider.html")
 
-
+@login_required
 def dashboard_view(request):
     return render(request, "portal/dashboard.html")
 
@@ -270,9 +270,59 @@ def  create_job_view(request):
         if "pay_on_demand" in request.POST:
             return redirect("core:create_job_view")  # Redirect to the same page for adding another
         
-        return redirect('/payment/jobs') 
+        return redirect('/jobs') 
     return render(request, "portal/create-job.html")
 
+
+@login_required
+def get_job_view(request):
+    query = request.GET.get('q', '')
+    status = request.GET.get('status', '')
+
+    jobs = Job.objects.filter(user=request.user)
+
+    if query:
+        jobs = jobs.filter(title__icontains=query)
+
+    if status == 'draft':
+        jobs = jobs.filter(is_draft=True)
+    elif status == 'in_progress':
+        jobs = jobs.filter(is_in_progress=True)
+    elif status == 'published':
+        jobs = jobs.filter(is_published=True)
+    elif status == 'completed':
+        jobs = jobs.filter(is_completed=True)
+
+    return render(request, "portal/jobs-list.html", {'jobs': jobs, 'query': query, 'status': status})
+
+
+@login_required
+def get_candidates_view(request):
+    user = request.user
+    query = request.GET.get("candidate_q", "")
+    job_filter = request.GET.get("job_filter", "")
+
+    jobs = Job.objects.filter(user=user)
+    candidates = Candidate.objects.filter(job__user=user)
+
+    if query:
+        candidates = candidates.filter(name__icontains=query)
+    
+    if job_filter:
+        candidates = candidates.filter(job__id=job_filter)
+
+    context = {
+        "jobs": jobs,
+        "candidates": candidates,
+        "candidate_query": query,
+        "job_filter": job_filter,
+    }
+    
+    return render(request, "portal/candidates-list.html", context)
+
+@login_required
+def settings_view(request):
+    return render(request, "portal/settings.html")
 
 
 def job_payment_view(request):

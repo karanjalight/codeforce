@@ -88,9 +88,9 @@
         <nav id="navmenu" class="navmenu">
             <ul>
               <li><a href="/dashboard" >Dashboard</a></li>
-              <li><a href="/pricing" class="active">Jobs</a></li>
-              <li><a href="/pricing">Candidates</a></li>
-              <li><a href="/pricing">Settings</a></li>
+              <li><a href="/jobs" class="active">Jobs</a></li>
+              <li><a href="/candidates">Candidates</a></li>
+              <li><a href="/settings">Settings</a></li>
               {% comment %} <li><a href="/pricing">Pricing</a></li> {% endcomment %}
               {% comment %} <li><a href="/contacts">Contact Us</a></li> {% endcomment %}
             </ul>
@@ -134,16 +134,16 @@
             <div class="stepper">
                 <div class="step">
                     <div class="step-number">1</div>
-                    <div class="step-text">Job Position</div>
+                    <div class="step-text">Job Listing</div>
                     <div class="step-line"></div>
                 </div>
-                <div class="step">
+                {% comment %} <div class="step">
                     <div class="step-number"  style='backround-color:gray !important'>2</div>
                     <div class="step-text" style='color:gray' >Payment</div>
                     <div class="step-line"  style='color:gray'></div>
-                </div>
+                </div> {% endcomment %}
                 <div class="step">
-                    <div class="step-number">3</div>
+                    <div class="step-number">2</div>
                     <div class="step-text" style='color:gray'>Success</div>
                 </div>
             </div>

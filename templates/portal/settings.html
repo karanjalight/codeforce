@@ -1,10 +1,11 @@
+
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Dashboard - CODEFORCE</title>
+    <title>profile - CODEFORCE</title>
     <meta
       name="description"
       content="School portal, fee management, online fee payment, Mpesa to school fees"
@@ -88,9 +89,9 @@
         <nav id="navmenu" class="navmenu">
             <ul>
               <li><a href="/dashboard" >Dashboard</a></li>
-              <li><a href="/pricing" class="active">Jobs</a></li>
-              <li><a href="/pricing">Candidates</a></li>
-              <li><a href="/pricing">Settings</a></li>
+              <li><a href="/jobs" >Jobs</a></li>
+              <li><a href="/candidates  " >Candidates</a></li>
+              <li><a href="/settings" class="active">Settings</a></li>
               {% comment %} <li><a href="/pricing">Pricing</a></li> {% endcomment %}
               {% comment %} <li><a href="/contacts">Contact Us</a></li> {% endcomment %}
             </ul>
@@ -106,9 +107,9 @@
         <div class="container">
           <div class="row d-flex justify-content-center text-center">
             <div class="col-lg-8">
-              <h1>Create Job Listing</h1>
+              <h1> Your Profile </h1>
               <p class="mb-0">
-                {% comment %} Get up to 10 hires with priority access and matching. Unused hires roll over, making this ideal for regular hiring. {% endcomment %}
+                Settings
               </p>
             </div>
           </div>
@@ -118,106 +119,22 @@
         <div class="container">
           <ol>
             <li><a href="/">Dashboard</a></li>
-            <li><a href="/create-job">Create Job</a></li>
-            <li><a href="#">Payment</a></li>
+            <li><a href="/create-job">Settings</a></li>
             {% comment %} <li class="current">Pay on Demand</li> {% endcomment %}
           </ol>
         </div>
       </nav>
     </div>
 
+    <main class="main container mt-5 mb-5">
+        <br><br><br><br><br><br><br>
 
-    <br />
-    <br />
-    <br />
-    <main class="main container">
-      <div class="row ">
-        <div class="col-lg-3 col-md-6">
-            <div class="stepper">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <div class="step-text">Job Listing</div>
-                    <div class="step-line"></div>
-                </div>
-                <div class="step">
-                    <div class="step-number"  style='backround-color:gray !important'>2</div>
-                    <div class="step-text" >Success</div>
-                    <div class="step-line"  style='color:gray'></div>
-                </div>
+        <div class="row d-flex justify-content-center text-center">
+            <div class="col-lg-8">
+              <h3> Coming Soon! </h3>
             </div>
-        </div>
-        
-        
-        <div class='col-lg-9 col-md-6'>
-            <section id="pricing" class="pricing section">
-                <h2> Choose Package </h2>
-                <p> Select the size of team you want to hire </p>
-                <p> Pay upon successful addmission </p>
-          
-                <div class="container">
-                  <div class="row gy-3">
-                    <div class="col-xl-4 col-lg-4" data-aos="fade-up" data-aos-delay="100">
-                      <div class="pricing-item featured">
-                        <h3>One Hire</h3>
-                        <h4><sup>USD</sup> 8 <span> / Tech talent 1 Hire</span></h4>
-                        <ul>
-                        <li>No commitments</li>
-                        <li>Instant access to specialists</li>
-                        <li>Perfect for occasional hiring</li>
-                        <li>Best for: One-time hire</li>
-                        </ul>
-                        <div class="btn-wrap">
-                          <a href="/pay-success" class="btn-buy">Choose Package</a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4" data-aos="fade-up" data-aos-delay="100">
-                      <div class="pricing-item featured">
-                        <h3>10 Hires</h3>
-                        <h4><sup>USD</sup>51 <span> / month </span></h4>
-                        <ul>
-                          <li>Upto 10 Hires</li>
-                          <li>Priority access & matching</li>
-                          <li>Unused hires roll over</li>
-                          <li>Best for: Regular hiring</li>
-                          {% comment %}
-                          <li class="na">Massa ultricies mi</li>
-                          {% endcomment %}
-                        </ul>
-                        <div class="btn-wrap">
-                          <a href="/pay-success" class="btn-buy">Choose Package</a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4" data-aos="fade-up" data-aos-delay="100">
-                        <div class="pricing-item featured">
-                          <h3>Unlimited Hires</h3>
-                          <h4><sup>USD</sup>500<span> / year </span></h4>
-                          <ul>
-                            <li>Dedicated recruitment support</li>
-                            <li>Priority expert access</li>
-                            <li>Custom workforce solutions</li>
-                            <li>Best for: High-volume hiring</li>
-                          </ul>
-                          <div class="btn-wrap">
-                            <a href="/pay-success" class="btn-buy">Choose Package</a>
-                          </div>
-                        </div>
-                      </div>
-                </div>
-            </section>  
-        </div>
-        
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-
-      </div>
-      
- 
+          </div>
+        <br><br><br><br><br><br><br>
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

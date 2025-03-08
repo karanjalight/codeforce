@@ -15,7 +15,17 @@ urlpatterns = [
     
     #  hires
     path('create-job/', create_job_view, name='create-job'),
+    path('jobs/', get_job_view, name='getjob'),
     path('payment/jobs/', job_payment_view, name='pay-per-hire-payment'),
+    
+    # candidates
+    path('candidates/',  get_candidates_view, name='candidates'),
+
+
+    # settings
+    path('settings/',  settings_view, name='candidates'),
+
+    
     
     
     
