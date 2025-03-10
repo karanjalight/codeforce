@@ -9,12 +9,13 @@ from import_export.admin import ExportActionModelAdmin, ImportExportModelAdmin
 from import_export import resources
 from import_export.formats.base_formats import CSV
 
-
 @admin.register(Job)
 class JobAdmin(admin.ModelAdmin):
     list_display = ('title', 'user', 'is_published', 'is_in_progress', 'is_completed', 'created_at')
     search_fields = ('title', 'user__email')
     list_filter = ('is_published', 'is_in_progress', 'is_completed')
+    ordering = ('-created_at',)  # Order jobs from newest to oldest
+
 
 @admin.register(Candidate)
 class CandidateAdmin(admin.ModelAdmin):

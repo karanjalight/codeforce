@@ -11,16 +11,17 @@ from autoslug import AutoSlugField
 from datetime import date
 
 
-
 class Job(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    user = models.ForeignKey(settings.AUTH_USER_MODEL,  related_name='jobsowner', on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='jobsowner', on_delete=models.CASCADE)
     title = models.CharField(max_length=255, null=True, blank=True)
+    positions = models.CharField(max_length=255, null=True, blank=True)
     expertise = models.CharField(max_length=100, null=True, blank=True)
     employment_type = models.CharField(max_length=50, null=True, blank=True)
     experience_required = models.PositiveIntegerField(null=True, blank=True)
     salary_min = models.PositiveIntegerField(null=True, blank=True)
     salary_max = models.PositiveIntegerField(null=True, blank=True)
+    salary_frequency = models.CharField(max_length=10, choices=[("weekly", "Weekly"), ("monthly", "Monthly"), ("yearly", "Yearly")], default="monthly")  # <-- NEW FIELD
     description = models.TextField(null=True, blank=True)
     qualifications = models.TextField(null=True, blank=True)
     benefits = models.TextField(null=True, blank=True)

@@ -246,7 +246,7 @@ def pay_pro_view(request):
 
 
 @login_required
-def  create_job_view(request):
+def create_job_view(request):
     if request.method == "POST":
         print(request.POST)
         title = request.POST.get("position_title")
@@ -255,19 +255,23 @@ def  create_job_view(request):
         experience_required = request.POST.get("experience")
         salary_min = request.POST.get("salary_min")
         salary_max = request.POST.get("salary_max")
+        salary_frequency = request.POST.get("salary_frequency")  # <-- New field
         description = request.POST.get("description")
         qualifications = request.POST.get("qualifications")
         benefits = request.POST.get("benefits")
+        positions = request.POST.get("positions")
         
         # Create and save the job
         job = Job.objects.create(
             user=request.user,
             title=title,
+            positions = positions,
             expertise=expertise,
             employment_type=employment_type,
             experience_required=experience_required,
             salary_min=salary_min,
             salary_max=salary_max,
+            salary_frequency=salary_frequency,  # <-- Save salary frequency
             description=description,
             qualifications=qualifications,
             benefits=benefits,
@@ -283,13 +287,13 @@ def  create_job_view(request):
         return redirect('/jobs') 
     return render(request, "portal/create-job.html")
 
-
 @login_required
 def get_job_view(request):
     query = request.GET.get('q', '')
     status = request.GET.get('status', '')
 
-    jobs = Job.objects.filter(user=request.user)
+    # Fetch jobs for the logged-in user and order by created_at (newest first)
+    jobs = Job.objects.filter(user=request.user).order_by('-created_at')
 
     if query:
         jobs = jobs.filter(title__icontains=query)
