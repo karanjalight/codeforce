@@ -16,6 +16,11 @@ from django.template.loader import get_template, render_to_string
 from django.utils.html import strip_tags
 from accounts.models import *
 from django.contrib.auth import logout
+from .forms import ContactForm
+
+
+
+
 app_name = 'core'
 from .models import *
 
@@ -32,142 +37,6 @@ def landing_staff_view(request):
     
    
     return render(request, 'prime/staff.html') 
-
-@login_required
-def dashboard_view(request):    
-    user = request.user
-    try:
-        # Attempt to retrieve the student by the parent's admission number
-        students = Student.objects.get(npi=user.name)
-    except Student.DoesNotExist:
-        # Handle the case where the student does not exist
-        students = None
-
-    if students is not None:
-        # Add the current user as a parent if they are not already assigned
-        if user not in students.parents.all():
-            students.parents.add(user)
-            students.save()
-
-    students = Student.objects.get(parents=user)
-            
-    
-    # get the terms
-    term = Term.objects.filter(is_active=True).first()
-    fee = students.students_class.amount
-    
-    # get payments
-    payments = Payment.objects.filter(student=students, term=term).first()
-    if payments is None:
-        create = Payment.objects.create(
-            name = term.name,
-            user = user,
-            student =students,
-            term = term,
-            amount = 0,
-            balance = fee, 
-            is_active = True
-        )
-        create.save()
-        context = {
-        'students': students,
-        'term': create,
-        'payments': payments
-        }
-        return render(request, 'prime/dashboard.html', context ) 
-    else:
-        print(payments)
-        context = {
-            'students': students,
-            'term': payments,
-            'payments': payments
-        }
-        return render(request, 'prime/dashboard.html', context ) 
-
-def payment_view(request):     
-    user = request.user
-    students = Student.objects.get(parents=user)
-    # get the terms
-    term = Term.objects.filter(is_active=True).first()
-    # get payments
-    payments = Payment.objects.filter(student=students, term=term).first() 
-    
-    # setting balances
-    fee = students.students_class.amount
-    print(fee)
-    context = {
-            'students': students,
-            'term': term,
-            'payments': payments
-        }
-   
-    return render(request, 'prime/payment.html', context) 
-
-
-def verify_payment(request, ref, amt):
-    # Check if the reference number already exists
-    if AmountPaid.objects.filter(ref_code=ref).exists():
-        messages.success(request, 'Payment successful')
-        return redirect('/dashboard')
-    
-    user = request.user
-    email = user.email
-    name = user.username
-    ref_no = ref
-    term = Term.objects.filter(is_active=True).first()
-    students = Student.objects.get(parents=user)
-    payments = Payment.objects.filter(student=students, term=term).first()
-    fee = students.students_class.amount
-    gross = int(amt) + 100
-    print(gross)
-    
-    # Save the payment reference and amount to AmountPaid
-    amount_paid_instance = AmountPaid.objects.create(
-        ref_code=ref_no,
-        user=user,
-        amount=amt
-    )
-    
-    # Add the AmountPaid instance to the Payment model
-    payments.amount_paid.add(amount_paid_instance)
-    
-    # Calculate the total amount paid
-    total_amount_paid = sum(amount.amount for amount in payments.amount_paid.all())
-    
-    # Update the Payment model with the total amount paid and balance
-    payments.amount = total_amount_paid
-    payments.balance = fee - total_amount_paid
-    
-    # Set is_active to False only if the balance is 0
-    if payments.balance == 0:
-        payments.is_active = False
-    
-    payments.save()
-    
-    context = {
-        "name": name,
-        "email": email,
-        "amount": amt,
-        "ref_no": ref_no,
-        'term': term,
-        'payments': payments,
-        'date': payments.date_created
-    }
-    
-    html_message = render_to_string("emails/payment_receipt.html", context)
-    plain_message = strip_tags(html_message)
-    message = EmailMultiAlternatives(
-        subject='Payment Received',
-        body=plain_message,
-        from_email=f"KIARATURA<{settings.EMAIL_HOST_USER}>",
-        to=[email]
-    )
-    message.attach_alternative(html_message, 'text/html')
-    message.send()
-    
-    messages.success(request, 'Payment successful')
-    
-    return render(request, 'success.html')
 
 
 def success_view(request):    
@@ -211,6 +80,24 @@ def student_list_view(request):
     return render(request, 'prime/index.html' ) 
 
 def slider_intro_view(request):
+    if request.method == "POST":
+        name = request.POST.get("name")
+        email = request.POST.get("email")
+        subject = request.POST.get("subject")
+        message = request.POST.get("message")
+
+        # Validate required fields
+        if name and email and subject and message:
+            ContactMessage.objects.create(
+                name=name,
+                email=email,
+                subject=subject,
+                message=message,
+            )
+            messages.success(request, "Your message has been sent. Thank you!")
+            return redirect("/contacts")  # Prevent resubmission on refresh
+        else:
+            messages.error(request, "All fields are required!")
     return render(request, "intro-slider.html")
 
 @login_required
@@ -356,7 +243,49 @@ def events_view(request):
     return render(request, "portal/events.html")
 
 def fees_view(request):
+    if request.method == "POST":
+        name = request.POST.get("name")
+        email = request.POST.get("email")
+        subject = request.POST.get("subject")
+        message = request.POST.get("message")
+
+        # Validate required fields
+        if name and email and subject and message:
+            ContactMessage.objects.create(
+                name=name,
+                email=email,
+                subject=subject,
+                message=message,
+            )
+            messages.success(request, "Your message has been sent. Thank you!")
+            return redirect("/contacts")  # Prevent resubmission on refresh
+        else:
+            messages.error(request, "All fields are required!")
     return render(request, "portal/pricing.html")
 
 def contact_view(request):
+    return render(request, "portal/contact.html")
+
+
+
+def contact_view(request):
+    if request.method == "POST":
+        name = request.POST.get("name")
+        email = request.POST.get("email")
+        subject = request.POST.get("subject")
+        message = request.POST.get("message")
+
+        # Validate required fields
+        if name and email and subject and message:
+            ContactMessage.objects.create(
+                name=name,
+                email=email,
+                subject=subject,
+                message=message,
+            )
+            messages.success(request, "Your message has been sent. Thank you!")
+            return redirect("/contacts")  # Prevent resubmission on refresh
+        else:
+            messages.error(request, "All fields are required!")
+
     return render(request, "portal/contact.html")

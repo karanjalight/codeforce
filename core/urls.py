@@ -50,8 +50,6 @@ urlpatterns = [
     path('contacts/', contact_view, name='contact'),
     path('school-fees/', fees_view, name='events'),
     path('dashboard/', dashboard_view, name='dashboard'),
-    path('payment/', payment_view, name='payment'),
-    path('success/<ref>/<amt>/', verify_payment, name='verify-payment'),
     path('payment/history', payment_history_view, name='payment-history'),
 
     

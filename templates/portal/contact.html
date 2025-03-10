@@ -75,12 +75,17 @@
       <div
         class="container-fluid container-xl position-relative d-flex align-items-center"
       >
-      <a href="/" class="log d-flex align-items-center me-auto">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <img src="https://codeforcelab.lovable.app/lovable-uploads/2334f44b-ebd4-4b4d-a855-a67f10d63c98.png" class='h-20 object-cover -my-4 ' alt=""> 
-        {% comment %} <h1 class="sitename text-sm">CodeForce</h1> {% endcomment %}
-      </a>
-
+        <a href="/" class="log d-flex align-items-center me-auto">
+          <!-- Uncomment the line below if you also wish to use an image logo -->
+          <img
+            src="https://codeforcelab.lovable.app/lovable-uploads/2334f44b-ebd4-4b4d-a855-a67f10d63c98.png"
+            class="h-20 object-cover -my-4"
+            alt=""
+          />
+          {% comment %}
+          <h1 class="sitename text-sm">CodeForce</h1>
+          {% endcomment %}
+        </a>
 
         <nav id="navmenu" class="navmenu">
           <ul>
@@ -151,8 +156,7 @@
                 <i class="bi bi-geo-alt flex-shrink-0"></i>
                 <div>
                   <h3>Address</h3>
-                  <p>Nafasi Connection LLC
-                    07 Mpaka Rd, Nairobi</p>
+                  <p>Nafasi Connection LLC 07 Mpaka Rd, Nairobi</p>
                 </div>
               </div>
               <!-- End Info Item -->
@@ -185,13 +189,8 @@
             </div>
 
             <div class="col-lg-8">
-              <form
-                action="forms/contact.php"
-                method="post"
-                class="php-email-form"
-                data-aos="fade-up"
-                data-aos-delay="200"
-              >
+              <form method="post" data-aos="fade-up" data-aos-delay="200">
+                {% csrf_token %}
                 <div class="row gy-4">
                   <div class="col-md-6">
                     <input
@@ -233,14 +232,14 @@
                     ></textarea>
                   </div>
 
-                  <div class="col-md-12 text-center">
-                    <div class="loading">Loading</div>
-                    <div class="error-message"></div>
-                    <div class="sent-message">
-                      Your message has been sent. Thank you!
-                    </div>
+                  <div class="col-md-12 text-center"> 
+                    {% if messages %} {% for message in messages %}
+                    <div class="alert alert-success">{{ message }}</div>
+                    {% endfor %} {% endif %}
 
-                    <button type="submit">Send Message</button>
+                    <button type="submit" class="btn btn-primary">
+                      Send Message
+                    </button>
                   </div>
                 </div>
               </form>
@@ -260,34 +259,34 @@
     <br />
 
     <div
-    class="flex my-40 container items-center justify-center lg:h-[40vh] h-[50vh] px-2"
-  >
-    <div
-      class="relative mx-auto w-full lg:h-64 h-80 bg-cover bg-center rounded-lg shadow-lg"
-      style="
-        background-image: url('https://static.vecteezy.com/system/resources/previews/009/750/414/non_2x/hi-tech-digital-circuit-board-futuristic-ai-pad-and-electrical-lines-connected-on-blue-lighting-background-vector.jpg');
-      "
+      class="flex my-40 container items-center justify-center lg:h-[40vh] h-[50vh] px-2"
     >
-      <div class="absolute inset-0 bg-black opacity-50 rounded-lg"></div>
-      <div class="relative flex items-center justify-center h-full">
-        <div class="text-center text-white px-4">
-          <h4 class="text-3xl text-white md:text-4xl font-bold mb-2">
-            Access All Features
-          </h4>
-          <p class="text-sm">
-            Create Account & Login easily
-            <br />
-            Get started today!
-          </p>
-          <a
-            href="/home"
-            class="inline-block mt-4 bg-white text-black font-bold py-2 px-6 rounded-full"
-            >Get Started</a
-          >
+      <div
+        class="relative mx-auto w-full lg:h-64 h-80 bg-cover bg-center rounded-lg shadow-lg"
+        style="
+          background-image: url('https://static.vecteezy.com/system/resources/previews/009/750/414/non_2x/hi-tech-digital-circuit-board-futuristic-ai-pad-and-electrical-lines-connected-on-blue-lighting-background-vector.jpg');
+        "
+      >
+        <div class="absolute inset-0 bg-black opacity-50 rounded-lg"></div>
+        <div class="relative flex items-center justify-center h-full">
+          <div class="text-center text-white px-4">
+            <h4 class="text-3xl text-white md:text-4xl font-bold mb-2">
+              Access All Features
+            </h4>
+            <p class="text-sm">
+              Create Account & Login easily
+              <br />
+              Get started today!
+            </p>
+            <a
+              href="/home"
+              class="inline-block mt-4 bg-white text-black font-bold py-2 px-6 rounded-full"
+              >Get Started</a
+            >
+          </div>
         </div>
       </div>
     </div>
-  </div>
     <br />
     <br />
     <br />

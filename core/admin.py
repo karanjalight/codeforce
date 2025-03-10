@@ -28,3 +28,11 @@ class PaymentAdmin(admin.ModelAdmin):
     list_display = ('job', 'amount', 'status', 'paid_at')
     search_fields = ('job__title', 'status')
     list_filter = ('status', 'paid_at')
+
+
+@admin.register(ContactMessage)
+class ContactMessageAdmin(admin.ModelAdmin):
+    list_display = ("name", "email", "subject", "created_at")
+    search_fields = ("name", "email", "subject", "message")
+    list_filter = ("created_at",)
+    ordering = ("-created_at",)  # Show latest messages first
